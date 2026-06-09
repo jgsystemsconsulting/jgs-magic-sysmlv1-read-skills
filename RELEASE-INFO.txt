@@ -1,0 +1,5 @@
+JGS SysML v1 Free Skills â€” External Release
+Version:    0.1.0
+Staged:     2026-06-09T11:52:20.690686+00:00
+Source SHA: 90b17ec4dd9431e66c0c958c9d4a45be2f248727
+Vendor:     JG Systems Consulting Ltd.
