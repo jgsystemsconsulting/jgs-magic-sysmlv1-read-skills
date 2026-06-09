@@ -1,0 +1,48 @@
+﻿<!--
+Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
+See LICENSE for terms.
+-->
+
+# Skill Usage Guide â€” JGS SysML v1 Free Skills
+
+## Entry point
+
+Always start with the dispatcher:
+
+```
+/jgs-v1 <your request in plain English>
+```
+
+The dispatcher pings the bridge, checks your licence tier, and routes to the right specialist automatically.
+
+## Direct invocation
+
+Each specialist can also be called directly:
+
+```
+/jgs-v1-navigate [<package-name>]
+/jgs-v1-impact <element-name>
+/jgs-v1-migrate-read [<root-package>]
+/jgs-v1-cross-model
+/jgs-v1-audit [<root-package-id>]
+```
+
+Direct invocation skips the dispatcher's liveness check â€” you'll see raw bridge errors if the bridge is down.
+
+## What requires PRO tier
+
+All skills in this pack are FREE tier (read-only). To make changes to the model, you need:
+
+- **jgs-magic-sysmlv1-mcp PRO licence**
+- **jgs-magic-sysmlv1-pro-skills** pack
+
+The dispatcher will tell you when a request needs PRO access and describe what read-only analysis is available instead.
+
+## Troubleshooting
+
+**"Bridge is not reachable"** â€” ensure CATIA Magic is open with a SysML v1 project loaded and the jgs-magic-sysmlv1-mcp plugin is active.
+
+**"No satisfied v1 requirements"** (cross-model) â€” add satisfy links to your v1 requirements before running cross-model comparison. The skill cannot compare unsatisfied requirements against v2.
+
+**Results seem truncated** â€” some bridge tools cap at 50 results or 2000 elements. Use qualified names for exact lookups, or scope the skill to a specific package.
+

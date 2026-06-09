@@ -1,0 +1,6 @@
+# Release-repo .gitignore (v1 free skills)
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+Thumbs.db
