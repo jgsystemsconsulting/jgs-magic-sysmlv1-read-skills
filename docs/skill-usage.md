@@ -3,7 +3,7 @@ Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
 See LICENSE for terms.
 -->
 
-# Skill Usage Guide â€” JGS SysML v1 Free Skills
+# Skill Usage Guide — JGS SysML v1 Free Skills
 
 ## Entry point
 
@@ -27,7 +27,7 @@ Each specialist can also be called directly:
 /jgs-v1-audit [<root-package-id>]
 ```
 
-Direct invocation skips the dispatcher's liveness check â€” you'll see raw bridge errors if the bridge is down.
+Direct invocation skips the dispatcher's liveness check — you'll see raw bridge errors if the bridge is down.
 
 ## What requires PRO tier
 
@@ -40,9 +40,9 @@ The dispatcher will tell you when a request needs PRO access and describe what r
 
 ## Troubleshooting
 
-**"Bridge is not reachable"** â€” ensure CATIA Magic is open with a SysML v1 project loaded and the jgs-magic-sysmlv1-mcp plugin is active.
+**"Bridge is not reachable"** — ensure CATIA Magic is open with a SysML v1 project loaded and the jgs-magic-sysmlv1-mcp plugin is active.
 
-**"No satisfied v1 requirements"** (cross-model) â€” add satisfy links to your v1 requirements before running cross-model comparison. The skill cannot compare unsatisfied requirements against v2.
+**"No satisfied v1 requirements"** (cross-model) — add satisfy links to your v1 requirements before running cross-model comparison. The skill cannot compare unsatisfied requirements against v2.
 
-**Results seem truncated** â€” some bridge tools cap at 50 results or 2000 elements. Use qualified names for exact lookups, or scope the skill to a specific package.
+**Results seem truncated** — some bridge tools cap at 50 results or 2000 elements. Use qualified names for exact lookups, or scope the skill to a specific package.
 

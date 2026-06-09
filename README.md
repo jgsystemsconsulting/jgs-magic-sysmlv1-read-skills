@@ -8,13 +8,13 @@ See LICENSE for terms.
 **Version:** 0.1.0  
 **Vendor:** JG Systems Consulting Ltd.  
 **Contact:** JG Systems Consulting Ltd.  
-**Licence:** Free â€” no licence file required. Requires jgs-magic-sysmlv1-mcp (FREE tier).
+**Licence:** Free — no licence file required. Requires jgs-magic-sysmlv1-mcp (FREE tier).
 
 ---
 
 ## What This Is
 
-A free bundle of 12 Claude Code skills for engineers working with SysML v1 models in CATIA Magic Systems of Systems Architect (MSOSA). Every skill is read-only â€” no write access, no licence key, no model mutation.
+A free bundle of 12 Claude Code skills for engineers working with SysML v1 models in CATIA Magic Systems of Systems Architect (MSOSA). Every skill is read-only — no write access, no licence key, no model mutation.
 
 Start with `/jgs-v1` and describe what you need in plain English.
 
@@ -34,7 +34,7 @@ CATIA Magic. Repository: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv
    understand what you are installing and its prerequisites.
 2. Confirm the prerequisite is in place: the jgs-sysmlv1 MCP bridge must be installed
    and reachable (the FREE/read-only tier is sufficient), with a SysML v1 project open
-   in CATIA Magic. These skills are read-only â€” they never modify the model.
+   in CATIA Magic. These skills are read-only — they never modify the model.
 3. Run `python install.py --dry-run` and show me the skill list and target
    (~/.claude/skills/). If it looks right, run `python install.py`.
 4. Verify: list the installed jgs-v1* directories and confirm the count matches SKILLS.md.
@@ -49,12 +49,12 @@ CATIA Magic. Repository: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv
 
 | Skill | What it does |
 |-------|-------------|
-| `jgs-v1` | Dispatcher â€” routes any free-tier request to the right specialist |
-| `jgs-v1-navigate` | Structured model overview â€” packages, block counts, diagram inventory |
+| `jgs-v1` | Dispatcher — routes any free-tier request to the right specialist |
+| `jgs-v1-navigate` | Structured model overview — packages, block counts, diagram inventory |
 | `jgs-v1-impact` | Blast-radius analysis before changing a shared element |
-| `jgs-v1-migrate-read` | v1â†’v2 migration inventory document |
+| `jgs-v1-migrate-read` | v1→v2 migration inventory document |
 | `jgs-v1-cross-model` | Cross-model migration progress report (requires jgs-magic-sysmlv2-mcp too) |
-| `jgs-v1-audit` | Full audit orchestrator â€” runs all 6 specialists, writes report |
+| `jgs-v1-audit` | Full audit orchestrator — runs all 6 specialists, writes report |
 | `jgs-v1-audit-naming` | Naming convention violations |
 | `jgs-v1-audit-docs` | Documentation coverage gaps |
 | `jgs-v1-audit-requirements` | Requirement coverage + traceability matrix export |
@@ -87,9 +87,9 @@ bash install.sh
 ```
 
 Options:
-- `--dry-run` â€” preview what would be installed without writing anything
-- `--force` â€” overwrite existing same-named skills
-- `--uninstall` â€” remove previously installed jgs-v1* skills
+- `--dry-run` — preview what would be installed without writing anything
+- `--force` — overwrite existing same-named skills
+- `--uninstall` — remove previously installed jgs-v1* skills
 
 Skills are installed as top-level siblings under `~/.claude/skills/`. Restart Claude Code after installation.
 
@@ -98,7 +98,7 @@ Skills are installed as top-level siblings under `~/.claude/skills/`. Restart Cl
 ## Quick Start
 
 ```
-/jgs-v1 I just inherited a SysML v1 model â€” what am I looking at?
+/jgs-v1 I just inherited a SysML v1 model — what am I looking at?
 /jgs-v1 Run a full health audit
 /jgs-v1 What would break if I change the DataBus block?
 /jgs-v1 Give me a migration inventory for v2
@@ -116,8 +116,8 @@ Skills are installed as top-level siblings under `~/.claude/skills/`. Restart Cl
 
 ## Relationship to Other JGS Products
 
-- **jgs-magic-sysmlv1-mcp** â€” required bridge; this pack calls its read-only tools
-- **jgs-magic-sysmlv1-pro-skills** â€” the paid companion covering write-tier use cases
-- **jgs-magic-sysmlv2-mcp** â€” optional; required only for `jgs-v1-cross-model`
+- **jgs-magic-sysmlv1-mcp** — required bridge; this pack calls its read-only tools
+- **jgs-magic-sysmlv1-pro-skills** — the paid companion covering write-tier use cases
+- **jgs-magic-sysmlv2-mcp** — optional; required only for `jgs-v1-cross-model`
 
 

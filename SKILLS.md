@@ -3,7 +3,7 @@ Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
 See LICENSE for terms.
 -->
 
-# JGS SysML v1 Free Skills â€” Index
+# JGS SysML v1 Free Skills — Index
 
 Auto-generated at release time from each skill's frontmatter. 12 skills in this release.
 
