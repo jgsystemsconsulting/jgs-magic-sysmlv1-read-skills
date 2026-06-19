@@ -108,3 +108,11 @@ If `impact_analysis` or `get_relationships` returns an error or empty response, 
 - `find_by_name` bridge cap is 50 results — always check the count and warn if it equals 50.
 - `impact_analysis` and `get_relationships` are single-element calls — do not call them in a loop across multiple elements in this skill.
 - If the user provides a qualified name directly (e.g. `SensorsPackage::DataBus`), call `mcp__jgs-sysmlv1__find_by_qualified_name` instead of `find_by_name` in step 1 — this has no cap concern and returns an exact match.
+
+## Common Mistakes
+
+| Mistake | Fix |
+|---------|-----|
+| `find_by_name` result of exactly 50 treated as complete | It is capped at 50 (model-wide, silently truncated) — at 50, warn the list may be incomplete and advise the qualified name via `find_by_qualified_name` |
+| Calling `impact_analysis` / `get_relationships` in a loop | Both are single-element lookups, not bulk traversals — call once on the resolved `element_id` |
+| Treating an empty `impact_analysis` as an error | A zero-dependent result is a valid "safe to change in isolation" finding — note it explicitly rather than omitting the section |

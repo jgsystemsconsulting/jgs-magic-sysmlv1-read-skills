@@ -29,11 +29,12 @@ The scope argument is optional. If omitted, operate from the model root. If prov
 
 These are hard constraints confirmed against the bridge source. Violating them causes silent failures:
 
-- **`list_diagrams` requires `parent_id`** — there is no model-wide call. You must call it once per package node.
+- **`list_diagrams` requires `parent_id`** — there is no model-wide call. You must call it once per package node. **Cap this on large models:** if `walk_tree` returned more than ~40 packages, do NOT call `list_diagrams` for every one — that can be hundreds of calls (the live reference model has 944 packages). Either collect diagrams only for the top two package levels, or omit the diagram inventory with a note ("diagram counts omitted on large model — re-run `/jgs-v1-navigate <package>` scoped for diagrams").
 - **`find_by_type` is capped at 50 results and is model-wide** — never use it for counts. Use `get_model_metrics` instead.
 - **`walk_tree` defaults to `max_elements=200`** — this silently truncates large models. Always pass `max_elements=2000` explicitly.
 - **`find_by_name` is capped at 50 results** — if the result count equals 50, warn the user of possible truncation and advise using `find_by_qualified_name` for an exact match.
 - **`walk_tree` returns structural elements only** — it does not return diagram metadata. Diagram names and kinds must be fetched separately via `list_diagrams`.
+- **`walk_tree` / `list_children` do NOT enumerate Activity nodes/edges or StateMachine regions/transitions** — a populated activity/state-machine reports `childCount:1`. Never call a behavior "empty" from the tree; report its presence and note its internals need `get_model_metrics` type counts or `execute_groovy`.
 
 ---
 
@@ -158,7 +159,9 @@ If no diagrams were found in a package, omit the diagram count rather than showi
 ## Error handling
 
 - **Bridge not reachable:** If any tool call fails with a connection error, emit: "jgs-magic-sysmlv1-mcp bridge is not reachable. Is CATIA Magic running with the bridge plugin active?" and stop. Do not retry.
-- **Empty model:** If `walk_tree` returns zero elements, emit: "The model appears to be empty or the root package has no child elements."
+- **`walk_tree` returns an error** (a bridge `ScriptException` / `script-execution-failed`, NOT a connection error): do not abort. **Fall back to `list_children`** — start at the resolved root/package ID and recurse into children whose `type` ends in `Package` (or `Profile`), bounded to a sensible size (e.g. depth 10, stop after ~2,000 nodes). Take the model-wide Block count from `get_model_metrics` (not from the fallback). Add a one-line note that the tree was built via the `list_children` fallback because `walk_tree` errored. (Known bridge issue on some models.)
+- **`list_diagrams` returns an error for every package** (bridge ScriptException, not a single-package miss): omit diagram counts and add ONE note — "Diagram inventory unavailable — the bridge `list_diagrams` tool errored." Continue with the structural tree.
+- **Empty model:** If the tree traversal returns zero elements, emit: "The model appears to be empty or the root package has no child elements."
 - **`list_diagrams` call fails for a specific package:** Note the failure inline in the package tree entry (e.g. "SensorsPackage — diagram list unavailable") and continue with remaining packages.
 
 ---
@@ -171,3 +174,13 @@ If no diagrams were found in a package, omit the diagram count rather than showi
 - Do not infer diagram counts from `walk_tree` results — `walk_tree` does not return diagram metadata.
 - Do not skip the truncation check after `walk_tree`.
 - Do not call `enable_writes` or any write tool — this skill is read-only.
+
+## Common Mistakes
+
+| Mistake | Fix |
+|---------|-----|
+| `list_diagrams` called model-wide | It requires `parent_id` — call once per package node; cap the fan-out on large models (top two levels, or omit with a note) |
+| Counting Blocks with `find_by_type` | It is capped at 50 and model-wide — use `get_model_metrics` (unscoped) or filter the `walk_tree` result (scoped) |
+| `walk_tree` truncating silently | It defaults to `max_elements=200` — always pass `max_elements=2000` and warn if the count equals 2000 |
+| Inferring diagram counts from `walk_tree` | `walk_tree` returns structural elements only, no diagram metadata — fetch names/kinds via `list_diagrams` |
+| Activity / StateMachine reported "empty" from the tree | `walk_tree`/`list_children` do NOT enumerate Activity nodes/edges or SM regions/transitions — judge from `get_model_metrics` type counts or `execute_groovy getNode()`/`getRegion().getTransition()` |

@@ -1,7 +1,7 @@
 ---
 name: jgs-v1-audit-naming
 role: audit-specialist
-description: JGS Model Audit — naming conventions specialist. Checks model element names against SysML/UML naming conventions using the check_naming_conventions MCP tool. Returns a JSON array of findings conforming to the jgs-model-audit finding schema.
+description: JGS Model Audit — naming conventions specialist. Checks model element names against SysML/UML naming conventions using the check_naming_conventions MCP tool. Returns a JSON array of findings conforming to the jgs-v1-audit finding schema.
 ---
 <!--
 Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
@@ -10,25 +10,39 @@ See LICENSE for terms.
 
 # JGS Audit — Naming Conventions
 
-You are a specialist audit agent. You have been dispatched by the jgs-model-audit orchestrator with a single argument: the root package ID of the SysML model to audit.
+You are a specialist audit agent. You have been dispatched by the jgs-v1-audit orchestrator with a single argument: the root package ID of the SysML model to audit.
 
 ## Your Task
 
-Call `check_naming_conventions` with the root package ID. Parse the result and emit findings as a JSON array.
+Call `check_naming_conventions`. Parse the result and emit findings as a JSON array.
+
+**Scope note:** `check_naming_conventions` takes **no arguments** and audits the whole open model — it cannot be scoped to a package. Ignore the root package ID for the tool call; it is retained only for report context.
 
 ## Input
 
 The root package ID is provided as the first argument to this skill invocation, e.g.:
-`/jgs-audit-naming _abc123_`
+`/jgs-v1-audit-naming _abc123_`
 
 ## MCP Tool Call
 
 Call:
 ```
-mcp__jgs-sysmlv1__check_naming_conventions({"package_id": "<root_package_id>"})
+mcp__jgs-sysmlv1__check_naming_conventions({})
 ```
 
 If the v2 bridge is active, call `mcp__jgs-sysmlv2__check_naming_conventions` instead.
+
+## Result-size cap
+
+On a real model `check_naming_conventions` can return **thousands** of violations (the live
+qa-fixture-v1 model returns 9,287). Do **not** emit one finding per violation at that scale.
+
+- If the tool returns **more than 25** violations: emit the first 25 as individual `NM-001` findings,
+  then emit ONE rollup finding (`check_id` `NM-000`, severity MINOR, `element_id` null) whose detail
+  states the true total and that the remainder are omitted — e.g. "check_naming_conventions reported
+  9287 violations; 25 shown. The rest are likely systemic (e.g. spaces in classifier names) and are
+  best resolved in bulk."
+- If 25 or fewer: emit one finding each, as below.
 
 ## Finding Mapping
 
@@ -89,3 +103,10 @@ Return ONLY a JSON array. No prose, no explanation. Example:
 ```
 
 If no violations found, return `[]`.
+
+## Common Mistakes
+
+| Mistake | Fix |
+|---------|-----|
+| Scoping `check_naming_conventions` to the root package | It takes no arguments and audits the whole open model — pass `{}`; the root package ID is report context only |
+| Emitting one finding per violation at scale | A real model can return thousands (qa-fixture-v1: 9,287) — cap at 25 individual `NM-001` findings + one `NM-000` rollup with the true total |

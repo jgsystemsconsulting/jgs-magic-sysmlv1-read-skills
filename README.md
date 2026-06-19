@@ -5,7 +5,9 @@ See LICENSE for terms.
 
 # JGS SysML v1 Free Skills
 
-**Version:** 0.1.0  
+![Licence](https://img.shields.io/badge/licence-proprietary-blue) ![Version](https://img.shields.io/badge/version-0.1.1-green) ![Skills](https://img.shields.io/badge/skills-17-orange) ![Claude Code](https://img.shields.io/badge/Claude%20Code-compatible-8A2BE2)
+
+**Version:** 0.1.1  
 **Vendor:** JG Systems Consulting Ltd.  
 **Contact:** JG Systems Consulting Ltd.  
 **Licence:** Free — no licence file required. Requires jgs-magic-sysmlv1-mcp (FREE tier).
@@ -14,7 +16,7 @@ See LICENSE for terms.
 
 ## What This Is
 
-A free bundle of 12 Claude Code skills for engineers working with SysML v1 models in CATIA Magic Systems of Systems Architect (MSOSA). Every skill is read-only — no write access, no licence key, no model mutation.
+A free bundle of 17 Claude Code skills for engineers working with SysML v1 models in CATIA Magic Systems of Systems Architect (MSOSA). Every skill is read-only — no write access, no licence key, no model mutation.
 
 Start with `/jgs-v1` and describe what you need in plain English.
 
@@ -28,7 +30,7 @@ Copy everything in the block below and paste it into your coding agent
 ```text
 You are installing jgs-magic-sysmlv1-free-skills, a FREE Claude Code skills pack
 (JG Systems Consulting Ltd.) of read-only analysis skills for SysML v1 models in
-CATIA Magic. Repository: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-free-skills (version 0.1.0). Do this in order:
+CATIA Magic. Repository: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-free-skills (version 0.1.1). Do this in order:
 
 1. Read README.md, docs/skill-usage.md, and CHANGELOG.md in this repository so you
    understand what you are installing and its prerequisites.
@@ -49,18 +51,23 @@ CATIA Magic. Repository: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv
 
 | Skill | What it does |
 |-------|-------------|
-| `jgs-v1` | Dispatcher — routes any free-tier request to the right specialist |
-| `jgs-v1-navigate` | Structured model overview — packages, block counts, diagram inventory |
-| `jgs-v1-impact` | Blast-radius analysis before changing a shared element |
-| `jgs-v1-migrate-read` | v1→v2 migration inventory document |
-| `jgs-v1-cross-model` | Cross-model migration progress report (requires jgs-magic-sysmlv2-mcp too) |
-| `jgs-v1-audit` | Full audit orchestrator — runs all 6 specialists, writes report |
-| `jgs-v1-audit-naming` | Naming convention violations |
-| `jgs-v1-audit-docs` | Documentation coverage gaps |
-| `jgs-v1-audit-requirements` | Requirement coverage + traceability matrix export |
-| `jgs-v1-audit-duplicates` | Duplicate element detection |
-| `jgs-v1-audit-unused` | Unused type detection |
-| `jgs-v1-audit-methodology` | BDD/IBD/parametric heuristics; model validation; diagram export |
+| `jgs-v1` | Dispatcher for all jgs-magic-sysmlv1-mcp FREE-tier skills — navigate, inspect, search, impact, audit, repor… |
+| `jgs-v1-audit` | JGS Model Audit — free, read-only SysML model health audit |
+| `jgs-v1-audit-docs` | JGS Model Audit — documentation coverage specialist |
+| `jgs-v1-audit-duplicates` | JGS Model Audit — duplicate elements specialist |
+| `jgs-v1-audit-methodology` | JGS Model Audit — SE layer hygiene heuristics specialist |
+| `jgs-v1-audit-naming` | JGS Model Audit — naming conventions specialist |
+| `jgs-v1-audit-requirements` | JGS Model Audit — requirement coverage and traceability specialist |
+| `jgs-v1-audit-unused` | JGS Model Audit — unused types and definitions specialist |
+| `jgs-v1-diagrams` | Inventory and export SysML v1 diagrams — build a visual review pack of diagram images, list diagram kinds,… |
+| `jgs-v1-fixplan` | Turn a SysML v1 audit's findings into a read-only remediation plan — per-finding recommended action, the ex… |
+| `jgs-v1-impact` | Impact analysis for a SysML v1 element — map dependents, diagrams, and requirement links before making a ch… |
+| `jgs-v1-inspect` | Deep-dive a single SysML v1 element — type, structure, ports, relationships, allocations, stereotypes, tagg… |
+| `jgs-v1-navigate` | Navigate and inspect a SysML v1 model — produce a structured overview of packages, element counts, and diag… |
+| `jgs-v1-report` | Produce a shareable model-health report and Requirements Traceability Matrix (RTM) for a SysML v1 model, wr… |
+| `jgs-v1-search` | Full-text search across element names in a SysML v1 model and present ranked hits with type, qualified name… |
+| `jgs-v1-status` | Report the SysML v1 bridge safety state (tier/mode) and recent model edit history |
+| `jgs-v1-units` | Look up units, quantity kinds, and standard-library types in a SysML v1 model |
 
 ---
 
@@ -69,7 +76,6 @@ CATIA Magic. Repository: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv
 - **jgs-magic-sysmlv1-mcp** bridge installed and running (FREE tier sufficient)
 - **Claude Code** with MCP configured for `jgs-magic-sysmlv1-mcp`
 - A SysML v1.x project open in CATIA Magic
-- For `jgs-v1-cross-model` only: **jgs-magic-sysmlv2-mcp** also running on a separate port
 
 ---
 
@@ -90,8 +96,27 @@ Options:
 - `--dry-run` — preview what would be installed without writing anything
 - `--force` — overwrite existing same-named skills
 - `--uninstall` — remove previously installed jgs-v1* skills
+- `--agent <name>` — target a specific agent (`claude` default, `openclaw`, `copilot`, `codex`, `gemini`, `cursor`)
+- `--agent all` — install for every user-global agent at once
+- `--list-agents` — show the supported agents and their install paths
 
-Skills are installed as top-level siblings under `~/.claude/skills/`. Restart Claude Code after installation.
+Skills are installed as top-level siblings under `~/.claude/skills/` (short-name discovery —
+`/jgs-v1`). Restart Claude Code after installation.
+
+## Use with other agents
+
+These skills ship in the open `SKILL.md` format. Agents that read it natively (Claude Code,
+OpenClaw, GitHub Copilot CLI) get the folder copied unchanged; others (OpenAI Codex CLI,
+Gemini CLI, Cursor) get an automatic format transform. Pick a target with `--agent`:
+
+```bash
+python install.py --list-agents       # show every target and where it installs
+python install.py --agent gemini      # e.g. install for Gemini CLI
+python install.py --agent all         # all user-global agents (not cursor)
+```
+
+See [docs/other-agents.md](docs/other-agents.md) for per-agent paths, invoke syntax, and
+limitations.
 
 ---
 
@@ -101,7 +126,6 @@ Skills are installed as top-level siblings under `~/.claude/skills/`. Restart Cl
 /jgs-v1 I just inherited a SysML v1 model — what am I looking at?
 /jgs-v1 Run a full health audit
 /jgs-v1 What would break if I change the DataBus block?
-/jgs-v1 Give me a migration inventory for v2
 ```
 
 ---
@@ -117,7 +141,6 @@ Skills are installed as top-level siblings under `~/.claude/skills/`. Restart Cl
 ## Relationship to Other JGS Products
 
 - **jgs-magic-sysmlv1-mcp** — required bridge; this pack calls its read-only tools
-- **jgs-magic-sysmlv1-pro-skills** — the paid companion covering write-tier use cases
-- **jgs-magic-sysmlv2-mcp** — optional; required only for `jgs-v1-cross-model`
+- **jgs-magic-sysmlv1-pro-skills** — the paid companion covering write-tier use cases and v1→v2 migration (migrate-read, cross-model)
 
 

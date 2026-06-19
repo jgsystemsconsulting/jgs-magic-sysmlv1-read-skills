@@ -1,0 +1,49 @@
+# Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
+# Content integrity + skill frontmatter checks. Self-contained (no external actions beyond
+# checkout). Runs on untrusted PRs: read-only perms, and MUST NOT execute repository code.
+name: validate
+on:
+  push:
+  pull_request:
+permissions: read-all
+jobs:
+  integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Content integrity check
+        run: |
+          set -e
+          fail=0
+          # Exclude .github/ — this workflow legitimately lists the sentinel strings
+          # below as grep targets; scanning it would always self-flag.
+          for s in "CONFIDENTIAL" "BEGIN PRIVATE KEY" "BEGIN OPENSSH PRIVATE KEY"; do
+            if grep -rIl --exclude-dir=.git --exclude-dir=.github "$s" . ; then
+              echo "::error::forbidden content found: $s"; fail=1
+            fi
+          done
+          exit $fail
+      - name: Skill frontmatter check
+        run: |
+          python3 - <<'PY'
+          import os, sys, glob, re
+          bad = []
+          for md in glob.glob("skills/*/SKILL.md"):
+              skill_dir = os.path.basename(os.path.dirname(md))
+              head = open(md, encoding="utf-8").read().split("---")
+              if len(head) < 3:
+                  bad.append(f"{md}: no frontmatter"); continue
+              fm = head[1]
+              name = next((l.split(":",1)[1].strip() for l in fm.splitlines()
+                           if l.strip().startswith("name:")), "")
+              desc = next((l.split(":",1)[1].strip() for l in fm.splitlines()
+                           if l.strip().startswith("description:")), "")
+              if not name:           bad.append(f"{md}: missing name")
+              elif name != skill_dir: bad.append(f"{md}: name '{name}' != dir '{skill_dir}'")
+              if name and re.match(r"^[a-z][a-z0-9-]*$", name) is None:
+                  bad.append(f"{md}: name not kebab-case: {name}")
+              if not desc:           bad.append(f"{md}: missing description")
+          if bad:
+              print("\n".join(bad)); sys.exit(1)
+          print("frontmatter OK")
+          PY

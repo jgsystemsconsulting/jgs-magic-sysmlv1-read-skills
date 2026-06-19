@@ -101,6 +101,23 @@ If any specialists are missing:
 
 ---
 
+## Phase 1.5: Native validation (validate_model)
+
+Run CATIA Magic's own validation engine as an authoritative pre-pass, before the heuristic specialists.
+
+Call `mcp__jgs-sysmlv1__validate_model({})` — **no arguments** (model-wide; cannot be scoped).
+
+`validate_model` can return tens of thousands of characters on a real model (~88 KB observed). Do **not**
+embed the raw result. Summarize: the total violation count plus a breakdown by severity/rule, and keep at
+most **25 representative** violations (with element IDs) for the report's Native Validation section. Store
+`native_validation_count` (the true total) and the capped list. If the call errors, set
+`native_validation_count` to `"unavailable"` and note it — do **not** abort the audit.
+
+This is the host tool's own verdict (not a heuristic) and leads the report: "CATIA Magic's validator
+reported N issues before the JGS heuristic checks ran."
+
+---
+
 ## Phase 2: Dispatch Specialists
 
 Dispatch all six specialist sub-skills in parallel using the Agent tool. Pass each:
@@ -162,6 +179,14 @@ Sort all findings by: severity order (CRITICAL → MAJOR → MINOR → INFO), th
 
 ## Phase 4: Write Report
 
+### Step 4.0 — Emit findings JSON (handoff for jgs-v1-fixplan)
+
+Also write the merged, deduped finding pool (the same findings going into the report) as
+`jgs-audit-findings-YYYY-MM-DD.json` — a JSON array of the finding objects plus `project_name`,
+`bridge_adapter`, and `root_package_id`. This is the machine-readable handoff that `/jgs-v1-fixplan`
+consumes (it never parses the markdown report). No extra tool calls — it serialises the pool already built
+in Phase 3.
+
 ### Step 4.1 — Determine output filename
 
 Base name: `jgs-audit-report-YYYY-MM-DD.md` (today's date).
@@ -187,10 +212,12 @@ jgs_fixable_count = count of findings where jgs_fixable == true
 
 Call:
 ```
-mcp__jgs-sysmlv1__get_model_metrics({"package_id": "<root_package_id>"})
+mcp__jgs-sysmlv1__get_model_metrics({})
 ```
 
-Extract `element_count`, `diagram_count`, `requirement_count`. Use 0 if the call fails.
+`get_model_metrics` takes **no arguments** and returns whole-model counts (it cannot be scoped to a
+package). Extract `element_count`, `diagram_count`, `requirement_count`. Use 0 if the call fails.
+If the audit was scoped to a sub-package, note in the report that these model stats are model-wide.
 
 ### Step 4.4 — Write the markdown report
 
@@ -212,6 +239,15 @@ Write to the chosen filename. The report structure:
 | **JGS-FIXABLE** | **<jgs_fixable_count>** |
 
 **Model stats:** <element_count> elements · <diagram_count> diagrams · <requirement_count> requirements
+
+**Native validation (validate_model):** <native_validation_count> rule violation(s) reported by CATIA
+Magic's own validator (model-wide), before the JGS heuristic checks. See Native Validation section below.
+
+## Native Validation
+
+Summary of `validate_model` (Phase 1.5): total = <native_validation_count>, by severity/rule:
+<one line per severity/rule with counts>. Up to 25 representative violations (element-ID linked):
+<capped list, or "validator output unavailable">.
 
 ## Findings
 
@@ -305,7 +341,7 @@ One paragraph calibrated to finding distribution:
 
 ### Call to Action
 
-Contact: JG Systems Consulting Ltd.
+Contact JG Systems Consulting Ltd. — <support@jgsystemsconsulting.com>
 Most quick-win and moderate JGS-FIXABLE findings in this report can be resolved in a single JGS session.
 Complex findings (e.g. SE layer restructure) require a scoped methodology engagement.
 ```
@@ -330,3 +366,12 @@ Full report: <output_filename>
 ```
 
 Done.
+
+## Common Mistakes
+
+| Mistake | Fix |
+|---------|-----|
+| Passing arguments to `validate_model` / `get_model_metrics` | Both take no arguments and are model-wide — pass `{}`; they cannot be scoped to a package |
+| Embedding the full `validate_model` output in the report | It can exceed tens of thousands of characters (~88 KB observed) — summarize by severity/rule, do not inline the raw list |
+| Dispatching specialists sequentially | Dispatch all six in parallel via the Agent tool; if one returns invalid JSON, emit a SYS-001 finding and continue rather than aborting the audit |
+| Aborting when only the v1 bridge answers `ping` | Fall back to `mcp__jgs-sysmlv2__ping` and the `v2` tool variants only if v1 is unreachable — the audit runs against whichever bridge responds |
