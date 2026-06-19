@@ -22,8 +22,6 @@ Each specialist can also be called directly:
 ```
 /jgs-v1-navigate [<package-name>]
 /jgs-v1-impact <element-name>
-/jgs-v1-migrate-read [<root-package>]
-/jgs-v1-cross-model
 /jgs-v1-audit [<root-package-id>]
 ```
 
@@ -36,13 +34,14 @@ All skills in this pack are FREE tier (read-only). To make changes to the model,
 - **jgs-magic-sysmlv1-mcp PRO licence**
 - **jgs-magic-sysmlv1-pro-skills** pack
 
+v1→v2 **migration** (migrate-read inventory, cross-model compare) is also a PRO capability — it is
+read-only but ships in the **jgs-magic-sysmlv1-pro-skills** pack, not here.
+
 The dispatcher will tell you when a request needs PRO access and describe what read-only analysis is available instead.
 
 ## Troubleshooting
 
 **"Bridge is not reachable"** — ensure CATIA Magic is open with a SysML v1 project loaded and the jgs-magic-sysmlv1-mcp plugin is active.
-
-**"No satisfied v1 requirements"** (cross-model) — add satisfy links to your v1 requirements before running cross-model comparison. The skill cannot compare unsatisfied requirements against v2.
 
 **Results seem truncated** — some bridge tools cap at 50 results or 2000 elements. Use qualified names for exact lookups, or scope the skill to a specific package.
 

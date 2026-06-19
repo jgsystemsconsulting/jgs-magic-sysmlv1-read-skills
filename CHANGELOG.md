@@ -5,17 +5,22 @@ See LICENSE for terms.
 
 # Changelog — JGS SysML v1 Free Skills
 
+## 0.1.1 — 2026-06-19
+
+Expanded the pack to 17 read-only skills — added `jgs-v1-inspect`,
+`jgs-v1-search`, `jgs-v1-report`, `jgs-v1-diagrams`, `jgs-v1-units`, `jgs-v1-status`,
+and `jgs-v1-fixplan` alongside the original navigate/impact/audit suite. The dispatcher
+(`jgs-v1`) now routes across the full free-tier toolset and flags PRO-only capabilities.
+
 ## 0.1.0 — 2026-05-18
 
 Initial release.
 
-**Skills included (12):**
+**Skills included (10):**
 
 - `jgs-v1` — dispatcher / entry point
 - `jgs-v1-navigate` — model navigation and overview (UC-V1-01)
 - `jgs-v1-impact` — blast-radius analysis before a change (UC-V1-10)
-- `jgs-v1-migrate-read` — v1→v2 migration inventory (UC-V1-08)
-- `jgs-v1-cross-model` — cross-model migration progress report (UC-V1-12)
 - `jgs-v1-audit` — full audit orchestrator
 - `jgs-v1-audit-naming` — naming convention violations (UC-V1-06)
 - `jgs-v1-audit-docs` — documentation coverage gaps

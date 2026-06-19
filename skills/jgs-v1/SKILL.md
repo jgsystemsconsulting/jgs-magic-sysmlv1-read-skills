@@ -1,6 +1,6 @@
 ---
 name: jgs-v1
-description: Dispatcher for all jgs-magic-sysmlv1-mcp FREE-tier skills — navigate, audit, impact analysis, migration inventory, cross-model compare. Routes any free-tier SysML v1 request to the right specialist skill.
+description: Dispatcher for all jgs-magic-sysmlv1-mcp FREE-tier skills — navigate, inspect, search, impact, audit, report, diagrams, units, status, fix-plan. Routes any free-tier SysML v1 request to the right specialist skill, and flags PRO-only capabilities (migration, cross-model, model writes).
 ---
 <!--
 Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
@@ -83,9 +83,27 @@ Match the user's request against the routing table below. Use the **first match*
 |---|---|
 | navigate, overview, summary, "what am I looking at", explore, browse, tree, packages, blocks, diagram list | `jgs-v1-navigate` |
 | impact, "what uses", "blast radius", dependencies, "what references", "before I change" | `jgs-v1-impact` |
-| migrate, migration, "v1 to v2", inventory, "v2 plan" | `jgs-v1-migrate-read` |
-| cross-model, compare, "v1 vs v2", "v2 equivalent", dual-bridge | `jgs-v1-cross-model` |
-| audit, health, naming, documentation, requirements coverage, duplicates, unused, validate, validation, diagram export, export diagrams, PNG, review pack, RTM, traceability matrix | `jgs-v1-audit` |
+| inspect, "tell me everything about", "describe this element", element details, "what is X" | `jgs-v1-inspect` |
+| search, "find anything matching", "look for", "where is" | `jgs-v1-search` |
+| audit, "health check", naming, documentation coverage, requirements coverage, duplicates, unused, methodology | `jgs-v1-audit` |
+| RTM, "traceability matrix", "requirements matrix", "model report", "model health report", "model summary", validate, validation | `jgs-v1-report` |
+| "fix plan", remediation, "how do I fix", "proposed updates", "fix preview", "what to do about findings" | `jgs-v1-fixplan` |
+| "diagram export", "export diagrams", PNG, "review pack", "diagram inventory", "layout styles", "compare layouts" | `jgs-v1-diagrams` |
+| units, "quantity kind", "value types", "standard library types", "find unit" | `jgs-v1-units` |
+| "safety state", tier, "dev mode", "edit history", "what changed", "undo stack" | `jgs-v1-status` |
+
+### PRO-tier capabilities (not in this free pack)
+
+The following are **read-only but premium** capabilities that ship in the separate **SysML v1 PRO skills pack** (sold by JG Systems Consulting Ltd), not in this free pack. If the request matches one of these intents, do **not** route to a specialist — instead tell the user it is a PRO capability and show the upgrade path below.
+
+| Intent keywords / phrases | PRO capability |
+|---|---|
+| migrate, migration, "v1 to v2", "v2 migration", "v2 plan", "migration inventory" | Migration inventory (v1→v2 readiness) |
+| cross-model, "v1 vs v2", "v2 equivalent", "compare v1 and v2", dual-bridge | Cross-model compare |
+
+Response template:
+
+> That capability ("_[intent]_") is part of the **SysML v1 PRO skills pack** (read-only migration tooling, sold separately). This free pack covers read / navigate / analysis only. To enable it, contact JG Systems Consulting Ltd at **support@jgsystemsconsulting.com** to upgrade.
 
 ### Ambiguity rules
 
@@ -101,10 +119,17 @@ When ambiguous (and no exception applies), present this menu:
 > I can help with several things using the SysML v1 skills. Which are you after?
 >
 > 1. **Navigate** — explore the model structure, packages, blocks, and diagrams
-> 2. **Impact analysis** — find what uses an element and assess blast radius before a change
-> 3. **Migration inventory** — produce a v1-to-v2 element inventory and migration plan
-> 4. **Cross-model compare** — compare v1 and v2 models side by side via dual-bridge
-> 5. **Audit** — health check, naming, documentation coverage, duplicates, diagram export, RTM
+> 2. **Inspect** — full dossier on a single element (type, ports, relationships, stereotypes, requirement links)
+> 3. **Search** — full-text search across element names
+> 4. **Impact analysis** — find what uses an element and assess blast radius before a change
+> 5. **Audit** — heuristic health check: naming, documentation, requirements, duplicates, unused, methodology
+> 6. **Report** — model-health summary + Requirements Traceability Matrix + native validation, exported to a file
+> 7. **Diagrams** — inventory and export diagram images (visual review pack)
+> 8. **Units** — look up units, quantity kinds, and standard-library types
+> 9. **Status** — bridge safety tier/mode and recent edit history
+> 10. **Fix plan** — turn audit findings into a remediation plan (recommended actions + computed fixes + the PRO tool to apply each)
+>
+> _Migration inventory and cross-model compare are PRO-tier capabilities (SysML v1 PRO skills pack) — ask to upgrade._
 
 Ask the user to pick a number or describe what they need, then route accordingly.
 
@@ -127,19 +152,28 @@ The following skills are provided by separate packs. If a skill is invoked and n
 | Skill | Pack |
 |---|---|
 | `jgs-v1-navigate` | jgs-magic-sysmlv1-free-skills |
+| `jgs-v1-inspect` | jgs-magic-sysmlv1-free-skills |
+| `jgs-v1-search` | jgs-magic-sysmlv1-free-skills |
 | `jgs-v1-impact` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-migrate-read` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-cross-model` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-audit` | jgs-sysmlv1-audit-pack |
-| `jgs-v1-audit-naming` | jgs-sysmlv1-audit-pack |
-| `jgs-v1-audit-docs` | jgs-sysmlv1-audit-pack |
-| `jgs-v1-audit-requirements` | jgs-sysmlv1-audit-pack |
-| `jgs-v1-audit-duplicates` | jgs-sysmlv1-audit-pack |
-| `jgs-v1-audit-unused` | jgs-sysmlv1-audit-pack |
-| `jgs-v1-audit-methodology` | jgs-sysmlv1-audit-pack |
+| `jgs-v1-report` | jgs-magic-sysmlv1-free-skills |
+| `jgs-v1-diagrams` | jgs-magic-sysmlv1-free-skills |
+| `jgs-v1-units` | jgs-magic-sysmlv1-free-skills |
+| `jgs-v1-status` | jgs-magic-sysmlv1-free-skills |
+| `jgs-v1-fixplan` | jgs-magic-sysmlv1-free-skills |
+| `jgs-v1-audit` | jgs-magic-sysmlv1-free-skills |
+| `jgs-v1-audit-naming` | jgs-magic-sysmlv1-free-skills |
+| `jgs-v1-audit-docs` | jgs-magic-sysmlv1-free-skills |
+| `jgs-v1-audit-requirements` | jgs-magic-sysmlv1-free-skills |
+| `jgs-v1-audit-duplicates` | jgs-magic-sysmlv1-free-skills |
+| `jgs-v1-audit-unused` | jgs-magic-sysmlv1-free-skills |
+| `jgs-v1-audit-methodology` | jgs-magic-sysmlv1-free-skills |
 
 ---
 
 ## Direct invocation note
 
 When specialists are invoked directly (not via this dispatcher), they skip liveness and tier checks — raw bridge errors will surface if the bridge is unavailable. This is by design. This dispatcher is the recommended entry point for all jgs-magic-sysmlv1-mcp work.
+
+## Common Mistakes
+
+No tool gotchas — this dispatcher only calls `ping` and `get_licence` to route; the model-introspection, diagram, and write caveats live in each specialist skill it dispatches to.
