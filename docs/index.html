@@ -8,16 +8,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>JGS SysML v1 Free Skills — read-only model analysis for CATIA Magic</title>
-<meta name="description" content="A free bundle of 17 read-only Claude Code skills for SysML v1 models in CATIA Magic: navigate, inspect, search, impact, audit, and report — no write access, no licence key.">
+<title>Free SysML v1 analysis skills for CATIA Magic — Claude Code | JGS</title>
+<meta name="description" content="17 free, read-only Claude Code skills that navigate, inspect, audit, and report on SysML v1 models in CATIA Magic. No licence key, no model changes. Works with 6 AI agents.">
+<meta name="keywords" content="SysML, MBSE, model-based systems engineering, CATIA Magic, Cameo, MCP, Claude Code, SysML audit, requirements traceability, model health, AI agent skills, SysML v1">
+<meta name="robots" content="index, follow">
+<meta name="author" content="JG Systems Consulting Ltd.">
 <link rel="canonical" href="https://jgsystemsconsulting.github.io/jgs-magic-sysmlv1-free-skills/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="JGS SysML v1 Free Skills">
-<meta property="og:description" content="Free, read-only SysML v1 analysis skills for CATIA Magic. 17 skills, multi-agent install, driven by the /jgs-v1 dispatcher.">
+<meta property="og:site_name" content="JGS CATIA Magic MCP">
+<meta property="og:title" content="Free SysML v1 analysis skills for CATIA Magic">
+<meta property="og:description" content="17 free, read-only skills to navigate, audit, and report on SysML v1 models — driven by /jgs-v1. No licence, no model changes.">
 <meta property="og:url" content="https://jgsystemsconsulting.github.io/jgs-magic-sysmlv1-free-skills/">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JGS SysML v1 Free Skills">
-<meta name="twitter:description" content="Free, read-only SysML v1 analysis skills for CATIA Magic. 17 skills, multi-agent install.">
+<meta name="twitter:title" content="Free SysML v1 analysis skills for CATIA Magic">
+<meta name="twitter:description" content="17 free, read-only skills to navigate, audit, and report on SysML v1 models. Works with 6 AI agents.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "JGS SysML v1 Free Skills",
+  "applicationCategory": "DeveloperApplication",
+  "applicationSubCategory": "Model-Based Systems Engineering",
+  "operatingSystem": "Windows, macOS, Linux",
+  "softwareVersion": "0.1.1",
+  "url": "https://jgsystemsconsulting.github.io/jgs-magic-sysmlv1-free-skills/",
+  "description": "A free bundle of read-only Claude Code skills for analysing SysML v1 models in CATIA Magic via the jgs-magic-sysmlv1-mcp bridge.",
+  "author": { "@type": "Organization", "name": "JG Systems Consulting Ltd." },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free — read-only, no licence file required" }
+}
+</script>
 <style>
 @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url('fonts/inter-400.woff2') format('woff2'); }
 @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url('fonts/inter-600.woff2') format('woff2'); }
@@ -36,7 +55,7 @@
 }
 
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 body {
   margin: 0; background: var(--ink); color: var(--mute-2);
   font-family: var(--sans); font-size: 16px; line-height: 1.7;
@@ -67,11 +86,12 @@ code, .mono { font-family: var(--mono); }
 /* Section scaffolding */
 section { padding: var(--pad-section) 0; border-bottom: 1px solid var(--line); }
 .sec-label { margin: 0 0 24px; }
+.lead-in { color: var(--text); max-width: 64ch; }
 
 /* Hero */
 .hero h1 { font-size: clamp(2rem, 5vw, 3.25rem); margin: 0 0 20px; line-height: 1.08; }
 .hero p.lede { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--text); max-width: 60ch; margin: 0 0 32px; }
-.btns { display: flex; flex-wrap: wrap; gap: 14px; }
+.btns { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
 .btn {
   font-family: var(--mono); font-weight: 700; font-size: 0.8125rem; letter-spacing: 0.06em;
   text-transform: uppercase; text-decoration: none; padding: 13px 22px; display: inline-flex; gap: 10px;
@@ -94,6 +114,7 @@ section { padding: var(--pad-section) 0; border-bottom: 1px solid var(--line); }
 .chain .step { background: var(--ink); padding: 22px 24px; display: flex; gap: 22px; align-items: baseline; }
 .chain .num { font-family: var(--mono); font-weight: 700; font-size: 3rem; line-height: 1; color: var(--line-2); min-width: 2ch; }
 .chain .step h3 { margin: 0 0 4px; }
+.chain .step code { color: var(--text-hi); }
 
 /* Code block */
 pre {
@@ -102,11 +123,16 @@ pre {
 }
 pre .c { color: var(--mute); }
 
+/* CTA panel — drafting-sheet motif (token-based, brand-consistent) */
+.cta { background: var(--ink-2); border: 1px solid var(--line); padding: clamp(28px, 4vw, 44px); }
+.cta h2 { margin: 0 0 10px; font-size: clamp(1.4rem, 3vw, 1.9rem); }
+.cta p { color: var(--text); max-width: 58ch; margin: 0 0 24px; }
+
 footer { padding: 40px 0 64px; }
 footer p { font-size: 0.85rem; color: var(--mute); }
 
 :focus-visible { outline: 2px solid var(--paper); outline-offset: 2px; }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; } .btn:hover { transform: none; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } .btn:hover { transform: none; } }
 @media (max-width: 860px) {
   .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; }
   .masthead .row .spacer { display: none; }
@@ -118,7 +144,7 @@ footer p { font-size: 0.85rem; color: var(--mute); }
 <header class="masthead">
   <div class="row">
     <span>CLASSIFICATION: <b>PUBLIC</b></span>
-    <span>LICENCE: <b>PROPRIETARY</b></span>
+    <span>LICENCE: <b>FREE</b></span>
     <span>DOC-ID: <b>JGS-SKILLS-V1-FREE</b></span>
     <span>REV <b>0.1.1</b></span>
     <span class="spacer"></span>
@@ -130,43 +156,48 @@ footer p { font-size: 0.85rem; color: var(--mute); }
 
   <section class="hero">
     <p class="label">JG Systems Consulting Ltd. · CATIA Magic MCP</p>
-    <h1>JGS SysML v1 Free Skills</h1>
+    <h1>Understand any SysML v1 model in minutes — for free.</h1>
     <p class="lede">
-      A free bundle of 17 read-only Claude Code skills for SysML v1 models in
-      CATIA Magic Systems of Systems Architect. Navigate, inspect, search, audit, and report —
-      no write access, no licence key, no model mutation. Start with <code>/jgs-v1</code> and
-      describe what you need in plain English.
+      Inherited a sprawling SysML v1 model and no idea where to start? Point your AI agent at it.
+      These <strong>17 free, read-only skills</strong> navigate, inspect, search, audit,
+      and report on live SysML v1 models in CATIA Magic — driven by one command, <code>/jgs-v1</code>,
+      in plain English. No licence key. No cloud. And because every skill is read-only, they can
+      never change your model.
     </p>
     <div class="btns">
-      <a class="btn primary" href="#install">Install →</a>
+      <a class="btn primary" href="#install">Install free →</a>
       <a class="btn ghost" href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-free-skills">View on GitHub →</a>
     </div>
   </section>
 
   <section>
     <p class="label sec-label">§01 — What it is</p>
-    <div class="grid cols-3">
-      <div class="cell"><h3>Read-only by design</h3><p>Every skill calls the FREE tier of the jgs-magic-sysmlv1-mcp bridge. No writes, ever — your model is never modified.</p></div>
-      <div class="cell"><h3>One dispatcher</h3><p><code>/jgs-v1</code> routes any request to the right specialist and flags PRO-only capabilities (writes, migration, cross-model).</p></div>
-      <div class="cell"><h3>Air-gapped</h3><p>The skills talk only to your local bridge. SysML stays inside CATIA Magic — no cloud, no data export.</p></div>
+    <p class="lead-in">
+      A bundle of focused Claude Code skills that read your model through the
+      <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-mcp">jgs-magic-sysmlv1-mcp</a>
+      bridge — locally, with nothing sent anywhere. It's the zero-risk way to put AI to work on real
+      MBSE: try it on your toughest model and see what it finds before you commit to anything.
+    </p>
+    <div class="grid cols-3" style="margin-top:24px">
+      <div class="cell"><h3>Read-only by design</h3><p>Every skill calls the FREE tier of the bridge. No writes, ever — your model is never modified.</p></div>
+      <div class="cell"><h3>One way in</h3><p><code>/jgs-v1</code> routes plain-English requests to the right specialist and flags what only PRO can do.</p></div>
+      <div class="cell"><h3>Air-gapped</h3><p>Talks only to your local bridge. The model stays inside CATIA Magic — no cloud, no export.</p></div>
     </div>
   </section>
 
   <section>
-    <p class="label sec-label">§02 — The skill set</p>
+    <p class="label sec-label">§02 — What the 17 skills do</p>
     <div class="grid cols-2">
-      <div class="cell"><h3><code>/jgs-v1</code></h3><p>Dispatcher — routes to the right specialist.</p></div>
-      <div class="cell"><h3><code>/jgs-v1-navigate</code></h3><p>Structured model overview — packages, counts, diagrams.</p></div>
-      <div class="cell"><h3><code>/jgs-v1-inspect</code></h3><p>Deep-dive one element — type, ports, relationships, links.</p></div>
+      <div class="cell"><h3><code>/jgs-v1</code></h3><p>Dispatcher — routes any request to the right specialist.</p></div>
+      <div class="cell"><h3><code>/jgs-v1-navigate</code></h3><p>Structured overview — packages, element counts, diagram inventory.</p></div>
+      <div class="cell"><h3><code>/jgs-v1-inspect</code></h3><p>Deep-dive one element — type, ports, relationships, requirement links.</p></div>
       <div class="cell"><h3><code>/jgs-v1-search</code></h3><p>Full-text search with ranked, typed hits.</p></div>
-      <div class="cell"><h3><code>/jgs-v1-impact</code></h3><p>Blast-radius analysis before changing a shared element.</p></div>
+      <div class="cell"><h3><code>/jgs-v1-impact</code></h3><p>Blast-radius analysis before you change a shared element.</p></div>
       <div class="cell"><h3><code>/jgs-v1-audit</code></h3><p>Six-specialist health audit with severity-graded findings.</p></div>
       <div class="cell"><h3><code>/jgs-v1-report</code></h3><p>Shareable model-health report + Requirements Traceability Matrix.</p></div>
-      <div class="cell"><h3><code>/jgs-v1-diagrams</code></h3><p>Inventory and export diagrams; compare layout styles.</p></div>
-      <div class="cell"><h3><code>/jgs-v1-units</code></h3><p>Look up units, quantity kinds, and library types.</p></div>
-      <div class="cell"><h3><code>/jgs-v1-fixplan</code></h3><p>Turn audit findings into a read-only remediation plan.</p></div>
+      <div class="cell"><h3><code>/jgs-v1-fixplan</code></h3><p>Turns audit findings into a read-only remediation plan.</p></div>
     </div>
-    <p style="margin-top:18px; font-size:0.9rem; color:var(--mute);">…plus the audit specialists (naming, docs, requirements, duplicates, unused, methodology) and <code>/jgs-v1-status</code>. 17 skills in total — see <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-free-skills/blob/main/SKILLS.md">SKILLS.md</a>.</p>
+    <p style="margin-top:18px; font-size:0.9rem; color:var(--mute);">…plus the audit specialists (naming, docs, requirements, duplicates, unused, methodology), <code>/jgs-v1-diagrams</code>, <code>/jgs-v1-units</code>, and <code>/jgs-v1-status</code>. 17 in total — see <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-free-skills/blob/main/SKILLS.md">SKILLS.md</a>.</p>
   </section>
 
   <section>
@@ -174,14 +205,16 @@ footer p { font-size: 0.85rem; color: var(--mute); }
     <div class="chain">
       <div class="step"><span class="num">1</span><div><h3>Open your model</h3><p>Open a SysML v1 project in CATIA Magic with the jgs-magic-sysmlv1-mcp bridge running (FREE tier).</p></div></div>
       <div class="step"><span class="num">2</span><div><h3>Ask in plain English</h3><p><code>/jgs-v1 I just inherited this model — what am I looking at?</code> The dispatcher picks the specialist.</p></div></div>
-      <div class="step"><span class="num">3</span><div><h3>Read the result</h3><p>Get a structured overview, an element dossier, an audit report, or an RTM — all read from the live model.</p></div></div>
+      <div class="step"><span class="num">3</span><div><h3>Read the result</h3><p>Get a structured overview, an element dossier, an audit report, or an RTM — all read straight from the live model.</p></div></div>
     </div>
   </section>
 
   <section>
     <p class="label sec-label">§04 — Works with your agent</p>
-    <div class="grid cols-3">
-      <div class="cell"><h3>Claude Code</h3><p>Native SKILL.md — the default target.</p></div>
+    <p class="lead-in">The skills ship in the open <code>SKILL.md</code> format. The installer targets six
+      agents — copied natively where supported, auto-transformed where not.</p>
+    <div class="grid cols-3" style="margin-top:24px">
+      <div class="cell"><h3>Claude Code</h3><p>Native — the default target.</p></div>
       <div class="cell"><h3>OpenClaw</h3><p>Native SKILL.md.</p></div>
       <div class="cell"><h3>GitHub Copilot CLI</h3><p>Native SKILL.md.</p></div>
       <div class="cell"><h3>OpenAI Codex CLI</h3><p>Auto-transformed to a prompt.</p></div>
@@ -193,23 +226,34 @@ footer p { font-size: 0.85rem; color: var(--mute); }
 
   <section id="install">
     <p class="label sec-label">§05 — Install</p>
-    <p style="margin:0 0 18px; color:var(--text);">Prerequisite: the <code>jgs-magic-sysmlv1-mcp</code> bridge installed and running (FREE tier), with a SysML v1 project open in CATIA Magic.</p>
+    <p style="margin:0 0 18px; color:var(--text);">Prerequisite: the <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-mcp">jgs-magic-sysmlv1-mcp</a> bridge installed and running (its FREE tier is enough), with a SysML v1 project open in CATIA Magic.</p>
     <pre><span class="c"># clone, then install for Claude Code (default)</span>
 python install.py
 
-<span class="c"># preview without writing anything</span>
+<span class="c"># preview first, or install for another agent</span>
 python install.py --dry-run
-
-<span class="c"># install for another agent (or all user-global agents)</span>
-python install.py --agent gemini
 python install.py --agent all</pre>
-    <p style="margin-top:18px; font-size:0.9rem; color:var(--mute);">Skills install flat for short-name discovery (<code>/jgs-v1</code>). Restart your agent afterwards.</p>
+    <p style="margin-top:14px; font-size:0.9rem; color:var(--mute);">Skills install flat for short-name discovery (<code>/jgs-v1</code>). Restart your agent afterwards.</p>
+  </section>
+
+  <section>
+    <div class="cta">
+      <p class="label" style="margin:0 0 12px">Go further</p>
+      <h2>When reading isn't enough, let the AI build.</h2>
+      <p>These free skills analyse your model. To have your agent <em>change</em> it — create
+        requirements, wire allocations, fix the findings this pack surfaces, draft diagrams — add a
+        PRO licence to the bridge. Same air-gapped, local setup; full write access.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:support@jgsystemsconsulting.com?subject=PRO%20licence%20enquiry%20—%20SysML%20v1">Get a PRO licence →</a>
+        <a class="btn ghost" href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-mcp/blob/main/docs/licensing.md">Compare tiers →</a>
+      </div>
+    </div>
   </section>
 
   <footer>
     <p>Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved. Proprietary —
        see <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-free-skills/blob/main/LICENSE">LICENSE</a>.
-       Requires <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-free-skills">jgs-magic-sysmlv1-mcp</a>. REV 0.1.1.</p>
+       Requires <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-mcp">jgs-magic-sysmlv1-mcp</a>. REV 0.1.1.</p>
   </footer>
 
 </main>
