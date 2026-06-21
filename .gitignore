@@ -1,4 +1,4 @@
-# Release-repo .gitignore (v1 free skills)
+# Release-repo .gitignore (v1 read skills)
 __pycache__/
 *.pyc
 .venv/

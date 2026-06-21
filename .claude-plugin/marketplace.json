@@ -1,10 +1,10 @@
 {
-  "name": "jgs-magic-sysmlv1-free-skills",
-  "description": "JG Systems Consulting free, read-only SysML v1 analysis skills for CATIA Magic: navigate, inspect, search, impact, audit, report.",
-  "owner": { "name": "JG Systems Consulting Ltd.", "url": "https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-free-skills" },
+  "name": "jgs-magic-sysmlv1-read-skills",
+  "description": "JG Systems Consulting read-only SysML v1 analysis skills for CATIA Magic: navigate, inspect, search, impact, audit, report. Free to use.",
+  "owner": { "name": "JG Systems Consulting Ltd.", "url": "https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills" },
   "plugins": [
     {
-      "name": "jgs-magic-sysmlv1-free-skills",
+      "name": "jgs-magic-sysmlv1-read-skills",
       "source": "./",
       "description": "Read-only SysML v1 model analysis skills (FREE tier) driven by the /jgs-v1 dispatcher."
     }

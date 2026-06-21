@@ -3,7 +3,7 @@ Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
 See LICENSE for terms.
 -->
 
-# JGS SysML v1 Free Skills
+# JGS SysML v1 Read Skills
 
 ![Licence](https://img.shields.io/badge/licence-proprietary-blue) ![Version](https://img.shields.io/badge/version-0.1.1-green) ![Skills](https://img.shields.io/badge/skills-17-orange) ![Claude Code](https://img.shields.io/badge/Claude%20Code-compatible-8A2BE2)
 
@@ -28,9 +28,9 @@ Copy everything in the block below and paste it into your coding agent
 (Claude Code, Cursor, etc.). It will read this repo and install the pack for you.
 
 ```text
-You are installing jgs-magic-sysmlv1-free-skills, a FREE Claude Code skills pack
+You are installing jgs-magic-sysmlv1-read-skills, a free, read-only Claude Code skills pack
 (JG Systems Consulting Ltd.) of read-only analysis skills for SysML v1 models in
-CATIA Magic. Repository: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-free-skills (version 0.1.1). Do this in order:
+CATIA Magic. Repository: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills (version 0.1.1). Do this in order:
 
 1. Read README.md, docs/skill-usage.md, and CHANGELOG.md in this repository so you
    understand what you are installing and its prerequisites.

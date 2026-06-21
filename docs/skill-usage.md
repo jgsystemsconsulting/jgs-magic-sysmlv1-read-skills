@@ -3,7 +3,7 @@ Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
 See LICENSE for terms.
 -->
 
-# Skill Usage Guide — JGS SysML v1 Free Skills
+# Skill Usage Guide — JGS SysML v1 Read Skills
 
 ## Entry point
 
