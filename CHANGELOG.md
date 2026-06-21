@@ -3,7 +3,16 @@ Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
 See LICENSE for terms.
 -->
 
-# Changelog — JGS SysML v1 Free Skills
+# Changelog — JGS SysML v1 Read Skills
+
+## 0.1.2 — 2026-06-21
+
+Renamed the product from **JGS SysML v1 Free Skills** to **JGS SysML v1 Read Skills**
+to describe what the pack does (read-only model analysis) rather than its price. The
+GitHub repository moved from `jgs-magic-sysmlv1-free-skills` to `jgs-magic-sysmlv1-read-skills`
+(the old URL redirects). The pack remains free to use. The bridge licence tier
+(`FREE` / PRO / ENTERPRISE) is unchanged — these skills still run on the bridge's
+FREE/read-only tier.
 
 ## 0.1.1 — 2026-06-19
 

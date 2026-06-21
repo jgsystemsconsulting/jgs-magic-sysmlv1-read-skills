@@ -1,11 +1,11 @@
 # Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
 #
-# This file is part of the JGS SysML v1 Free Skills distribution.
+# This file is part of the JGS SysML v1 Read Skills distribution.
 # Free to use and redistribute alongside jgs-magic-sysmlv1-mcp.
 # See LICENSE for the full terms.
 #
 # SPDX-License-Identifier: LicenseRef-JGSystemsConsulting-Proprietary
-"""Installer for the JGS SysML v1 Free Skills suite — multi-agent.
+"""Installer for the JGS SysML v1 Read Skills suite — multi-agent.
 
 The pack ships read-only SysML v1 analysis skills as Claude Code `SKILL.md` files.
 That format is read natively by several agents and can be transformed into the

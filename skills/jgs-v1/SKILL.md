@@ -59,7 +59,7 @@ If **any** write-intent phrase is detected **and** the tier is FREE:
 
 > **Write operations require PRO or ENTERPRISE tier.**
 >
-> The free skills pack is read-only. The operation you requested ("_[phrase detected]_") modifies the model, which requires an upgraded licence.
+> The read-only skills pack does not modify models. The operation you requested ("_[phrase detected]_") modifies the model, which requires an upgraded licence.
 >
 > Would you like me to do a read-only equivalent instead? For example, I can show you the current state of the element, run an impact analysis, or produce an audit report.
 
@@ -151,22 +151,22 @@ The following skills are provided by separate packs. If a skill is invoked and n
 
 | Skill | Pack |
 |---|---|
-| `jgs-v1-navigate` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-inspect` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-search` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-impact` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-report` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-diagrams` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-units` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-status` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-fixplan` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-audit` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-audit-naming` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-audit-docs` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-audit-requirements` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-audit-duplicates` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-audit-unused` | jgs-magic-sysmlv1-free-skills |
-| `jgs-v1-audit-methodology` | jgs-magic-sysmlv1-free-skills |
+| `jgs-v1-navigate` | jgs-magic-sysmlv1-read-skills |
+| `jgs-v1-inspect` | jgs-magic-sysmlv1-read-skills |
+| `jgs-v1-search` | jgs-magic-sysmlv1-read-skills |
+| `jgs-v1-impact` | jgs-magic-sysmlv1-read-skills |
+| `jgs-v1-report` | jgs-magic-sysmlv1-read-skills |
+| `jgs-v1-diagrams` | jgs-magic-sysmlv1-read-skills |
+| `jgs-v1-units` | jgs-magic-sysmlv1-read-skills |
+| `jgs-v1-status` | jgs-magic-sysmlv1-read-skills |
+| `jgs-v1-fixplan` | jgs-magic-sysmlv1-read-skills |
+| `jgs-v1-audit` | jgs-magic-sysmlv1-read-skills |
+| `jgs-v1-audit-naming` | jgs-magic-sysmlv1-read-skills |
+| `jgs-v1-audit-docs` | jgs-magic-sysmlv1-read-skills |
+| `jgs-v1-audit-requirements` | jgs-magic-sysmlv1-read-skills |
+| `jgs-v1-audit-duplicates` | jgs-magic-sysmlv1-read-skills |
+| `jgs-v1-audit-unused` | jgs-magic-sysmlv1-read-skills |
+| `jgs-v1-audit-methodology` | jgs-magic-sysmlv1-read-skills |
 
 ---
 
