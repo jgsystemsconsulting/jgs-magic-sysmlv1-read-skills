@@ -3,8 +3,8 @@ name: jgs-v1
 description: Dispatcher for all jgs-magic-sysmlv1-mcp FREE-tier skills — navigate, inspect, search, impact, audit, report, diagrams, units, status, fix-plan. Routes any free-tier SysML v1 request to the right specialist skill, and flags PRO-only capabilities (migration, cross-model, model writes).
 ---
 <!--
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
-See LICENSE for terms.
+Copyright (c) 2026 JG Systems Consulting Ltd.
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # jgs-v1 Dispatcher

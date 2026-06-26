@@ -3,8 +3,8 @@ name: jgs-v1-status
 description: Report the SysML v1 bridge safety state (tier/mode) and recent model edit history. FREE tier (read-only). Requires jgs-magic-sysmlv1-mcp. Trigger: "safety state", "what tier am I", "am I in write mode", "dev mode status", "edit history", "what changed recently", "undo stack".
 ---
 <!--
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
-See LICENSE for terms.
+Copyright (c) 2026 JG Systems Consulting Ltd.
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # jgs-v1-status — Bridge Safety State & Edit History

@@ -3,8 +3,8 @@ name: jgs-v1-impact
 description: Impact analysis for a SysML v1 element — map dependents, diagrams, and requirement links before making a change. FREE tier. Requires jgs-magic-sysmlv1-mcp.
 ---
 <!--
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
-See LICENSE for terms.
+Copyright (c) 2026 JG Systems Consulting Ltd.
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # jgs-v1-impact — Impact Analysis (UC-V1-10)

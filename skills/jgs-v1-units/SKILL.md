@@ -3,8 +3,8 @@ name: jgs-v1-units
 description: Look up units, quantity kinds, and standard-library types in a SysML v1 model. FREE tier (read-only). Requires jgs-magic-sysmlv1-mcp. Trigger: "units", "quantity kind", "value types", "standard library types", "find unit", "what library types are available", "is there a unit for".
 ---
 <!--
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
-See LICENSE for terms.
+Copyright (c) 2026 JG Systems Consulting Ltd.
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # jgs-v1-units — Units, Quantity Kinds & Library Types

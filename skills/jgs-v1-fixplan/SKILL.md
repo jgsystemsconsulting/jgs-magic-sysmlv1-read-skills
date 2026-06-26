@@ -3,8 +3,8 @@ name: jgs-v1-fixplan
 description: Turn a SysML v1 audit's findings into a read-only remediation plan — per-finding recommended action, the exact computed fix where deterministic (rename mapping, removal list), and the PRO/DANGEROUS write tool that would apply each. FREE tier (read-only; computes fixes, never applies them). Requires jgs-magic-sysmlv1-mcp + a jgs-v1-audit findings file. Trigger: "fix plan", "remediation", "how do I fix", "proposed updates", "fix preview", "what to do about findings".
 ---
 <!--
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
-See LICENSE for terms.
+Copyright (c) 2026 JG Systems Consulting Ltd.
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # jgs-v1-fixplan — Read-Only Remediation Plan

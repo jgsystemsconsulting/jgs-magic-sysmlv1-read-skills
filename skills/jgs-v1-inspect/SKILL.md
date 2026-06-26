@@ -3,8 +3,8 @@ name: jgs-v1-inspect
 description: Deep-dive a single SysML v1 element — type, structure, ports, relationships, allocations, stereotypes, tagged values, and requirement links in one dossier. FREE tier (read-only). Requires jgs-magic-sysmlv1-mcp. Trigger: "inspect", "tell me everything about", "describe this element/block/part", "what is X", "show details of".
 ---
 <!--
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
-See LICENSE for terms.
+Copyright (c) 2026 JG Systems Consulting Ltd.
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # jgs-v1-inspect — Single-Element Deep Dive

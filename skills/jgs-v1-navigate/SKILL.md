@@ -3,8 +3,8 @@ name: jgs-v1-navigate
 description: Navigate and inspect a SysML v1 model — produce a structured overview of packages, element counts, and diagrams. FREE tier. Requires jgs-magic-sysmlv1-mcp.
 ---
 <!--
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
-See LICENSE for terms.
+Copyright (c) 2026 JG Systems Consulting Ltd.
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # jgs-v1-navigate — Model Navigation and Inspection (UC-V1-01)

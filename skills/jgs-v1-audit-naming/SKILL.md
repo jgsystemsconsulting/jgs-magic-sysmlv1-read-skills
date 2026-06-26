@@ -4,8 +4,8 @@ role: audit-specialist
 description: JGS Model Audit — naming conventions specialist. Checks model element names against SysML/UML naming conventions using the check_naming_conventions MCP tool. Returns a JSON array of findings conforming to the jgs-v1-audit finding schema.
 ---
 <!--
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
-See LICENSE for terms.
+Copyright (c) 2026 JG Systems Consulting Ltd.
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # JGS Audit — Naming Conventions

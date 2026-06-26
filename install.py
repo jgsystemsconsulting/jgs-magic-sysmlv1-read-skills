@@ -1,8 +1,8 @@
-# Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
+# Copyright (c) 2026 JG Systems Consulting Ltd.
+# SPDX-License-Identifier: Apache-2.0
 #
 # This file is part of the JGS SysML v1 Read Skills distribution.
-# Free to use and redistribute alongside jgs-magic-sysmlv1-mcp.
-# See LICENSE for the full terms.
+# Licensed under the Apache License, Version 2.0; see LICENSE.
 #
 # SPDX-License-Identifier: LicenseRef-JGSystemsConsulting-Proprietary
 """Installer for the JGS SysML v1 Read Skills suite — multi-agent.

@@ -3,8 +3,8 @@ name: jgs-v1-diagrams
 description: Inventory and export SysML v1 diagrams — build a visual review pack of diagram images, list diagram kinds, and compare layout styles. FREE tier (read-only). Requires jgs-magic-sysmlv1-mcp. Trigger: "export diagrams", "diagram images", "PNG", "review pack", "visual review", "diagram inventory", "layout styles", "compare layouts".
 ---
 <!--
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
-See LICENSE for terms.
+Copyright (c) 2026 JG Systems Consulting Ltd.
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # jgs-v1-diagrams — Diagram Inventory & Visual Export

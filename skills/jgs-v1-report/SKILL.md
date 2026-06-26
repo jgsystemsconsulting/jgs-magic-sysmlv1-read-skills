@@ -3,8 +3,8 @@ name: jgs-v1-report
 description: Produce a shareable model-health report and Requirements Traceability Matrix (RTM) for a SysML v1 model, written to a file. FREE tier (read-only). Requires jgs-magic-sysmlv1-mcp. Trigger: "RTM", "traceability matrix", "requirements matrix", "model health report", "model summary report", "export a report".
 ---
 <!--
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
-See LICENSE for terms.
+Copyright (c) 2026 JG Systems Consulting Ltd.
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # jgs-v1-report — Model-Health & RTM Export

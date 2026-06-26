@@ -1,13 +1,16 @@
-JG Systems Consulting Ltd. - Third-Party Notices
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
+JGS SysML v1 Read Skills
+Copyright 2026 JG Systems Consulting Ltd.
 
-This product is licensed under the JG Systems Consulting Ltd.
-Proprietary Software Licence (see LICENSE).
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This NOTICE file is provided in accordance with section 4(d) of the Apache
+License and MUST be retained in redistributions.
 
 This product includes, depends on, or interoperates with third-party
 components. The following notices are provided in compliance with the
-licence terms of those components. Nothing in this file grants any
-rights in or to the proprietary portions of this Software.
+licence terms of those components. The jgs-magic-sysmlv1-mcp bridge that these
+skills drive is proprietary software of JG Systems Consulting Ltd. and is not
+covered by this repository's Apache-2.0 licence.
 
 ====================================================================
 TRADEMARK NOTICE
@@ -31,7 +34,7 @@ All other trademarks are the property of their respective owners and
 are used here for identification purposes only.
 
 ====================================================================
-THIRD-PARTY COMPONENTS — PLUGIN (JAVA / GROOVY)
+THIRD-PARTY COMPONENTS: PLUGIN (JAVA / GROOVY)
 ====================================================================
 
 1. CATIA Magic / Cameo Systems Modeler SDK
@@ -51,7 +54,7 @@ THIRD-PARTY COMPONENTS — PLUGIN (JAVA / GROOVY)
    equivalent Oracle Binary Code License.
 
 ====================================================================
-THIRD-PARTY COMPONENTS — SERVER & LICENSING TOOLING (PYTHON)
+THIRD-PARTY COMPONENTS: SERVER & LICENSING TOOLING (PYTHON)
 ====================================================================
 
 1. cryptography (PyPI)

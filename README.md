@@ -1,15 +1,15 @@
 <!--
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
-See LICENSE for terms.
+Copyright (c) 2026 JG Systems Consulting Ltd.
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # JGS SysML v1 Read Skills
 
-![Licence](https://img.shields.io/badge/licence-proprietary-blue) ![Version](https://img.shields.io/badge/version-0.1.2-green) ![Skills](https://img.shields.io/badge/skills-17-orange) ![Claude Code](https://img.shields.io/badge/Claude%20Code-compatible-8A2BE2)
+![Licence](https://img.shields.io/badge/licence-Apache--2.0-blue) ![Version](https://img.shields.io/badge/version-0.2.0-green) ![Skills](https://img.shields.io/badge/skills-17-orange) ![Claude Code](https://img.shields.io/badge/Claude%20Code-compatible-8A2BE2)
 
-**Version:** 0.1.2  
+**Version:** 0.2.0  
 **Vendor:** JG Systems Consulting Ltd.  
-**Licence:** Free to use. No licence file required.
+**Licence:** Apache-2.0 (free and open source). Requires the proprietary jgs-magic-sysmlv1-mcp bridge (FREE tier).
 
 > [!IMPORTANT]
 > **Requires the free [jgs-magic-sysmlv1-mcp](https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-mcp) bridge.**
@@ -40,7 +40,7 @@ Copy everything in the block below and paste it into your coding agent
 ```text
 You are installing jgs-magic-sysmlv1-read-skills, a free, read-only Claude Code skills pack
 (JG Systems Consulting Ltd.) of read-only analysis skills for SysML v1 models in
-CATIA Magic. Repository: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills (version 0.1.2). Do this in order:
+CATIA Magic. Repository: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills (version 0.2.0). Do this in order:
 
 1. Read README.md, docs/skill-usage.md, and CHANGELOG.md in this repository so you
    understand what you are installing and its prerequisites.
@@ -51,8 +51,8 @@ CATIA Magic. Repository: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv
    (~/.claude/skills/). If it looks right, run `python install.py`.
 4. Verify: list the installed jgs-v1* directories and confirm the count matches SKILLS.md.
 5. Tell me to restart Claude Code, then start with `/jgs-v1`.
-6. This pack is free to use alongside jgs-magic-sysmlv1-mcp; see LICENSE for terms. Do not
-   edit anything outside the install target.
+6. This pack is open source (Apache-2.0) and free to use alongside jgs-magic-sysmlv1-mcp; see
+   LICENSE. Do not edit anything outside the install target.
 ```
 
 ---
@@ -139,11 +139,10 @@ cloning first:
   repository to discover and install the pack. Cursor reads the `skills/` tree directly.
 
 > [!NOTE]
-> This is a **proprietary** pack, so it is **not** submitted to the public open-source
-> directories (Anthropic's curated `claude-plugins-official`, Cursor's reviewed public
-> marketplace, the community "awesome" lists), which require an open-source licence. Discovery
-> is through this repository and the [project landing page](https://jgsystemsconsulting.github.io/jgs-magic-sysmlv1-read-skills/);
-> the in-repo manifests above give you a one-command install once you are there.
+> This pack is open source (Apache-2.0), so it is also listed in the public agent directories
+> for searchable discovery: Anthropic's `claude-plugins-official` for Claude Code and Cursor's
+> public plugin marketplace. The bridge it drives, **jgs-magic-sysmlv1-mcp**, stays proprietary
+> and is distributed separately.
 
 ---
 

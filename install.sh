@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
-# See LICENSE for terms.
+# Copyright (c) 2026 JG Systems Consulting Ltd.
+# SPDX-License-Identifier: Apache-2.0
 #
 # Shell wrapper around install.py. Forwards all arguments.
 set -euo pipefail

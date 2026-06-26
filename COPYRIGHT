@@ -1,21 +1,23 @@
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
+Copyright 2026 JG Systems Consulting Ltd.
 
-This project — the software in this repository, together with all accompanying
-source code, plugins, servers, skills, templates, licensing tooling,
-scripts, resources, and documentation — is proprietary software of JG Systems
-Consulting Ltd., a company incorporated in England and Wales.
+This project (the JGS SysML v1 Read Skills: the skills, installers, and
+documentation in this repository) is licensed under the Apache License,
+Version 2.0. You may obtain a copy of the License in the LICENSE file at the
+root of this repository, or at http://www.apache.org/licenses/LICENSE-2.0.
 
-Use of this software is governed by the terms set out in the LICENSE
-file at the root of this repository. Unauthorised copying, modification,
-distribution, reverse engineering, or use of any part of this software,
-via any medium, is strictly prohibited without a valid written licence
-from JG Systems Consulting Ltd.
+SPDX-License-Identifier: Apache-2.0
 
-Third-party components redistributed or depended upon by this software
-are listed in the NOTICE file and remain the property of their
+These skills drive the separately distributed jgs-magic-sysmlv1-mcp bridge,
+which is proprietary software of JG Systems Consulting Ltd. and is NOT covered
+by this licence. This open-source licence applies only to the contents of this
+repository.
+
+Third-party components referenced by this software are listed in the NOTICE
+file and remain the property of their respective owners.
+
+"JG Systems Consulting" is a trademark of JG Systems Consulting Ltd. The Apache
+License does not grant permission to use the trade names, trademarks, or
+product names of the Licensor. "Cameo", "MagicDraw", and "No Magic" are
+trademarks of Dassault Systemes. "SysML" is a trademark of the Object
+Management Group (OMG). All other trademarks are the property of their
 respective owners.
-
-"JG Systems Consulting" is a trademark of JG Systems Consulting Ltd.
-"Cameo", "MagicDraw", "No Magic", and related marks are trademarks of
-Dassault Systèmes. "SysML" is a trademark of the Object Management Group
-(OMG). All other trademarks are the property of their respective owners.

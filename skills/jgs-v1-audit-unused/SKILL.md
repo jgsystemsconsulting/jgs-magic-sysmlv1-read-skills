@@ -4,8 +4,8 @@ role: audit-specialist
 description: JGS Model Audit — unused types and definitions specialist. Detects unused model types using find_unused_types (v1+v2) and find_unused_definitions (v2 only). Returns JSON findings conforming to the jgs-v1-audit finding schema.
 ---
 <!--
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
-See LICENSE for terms.
+Copyright (c) 2026 JG Systems Consulting Ltd.
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # JGS Audit — Unused Types & Definitions

@@ -1,9 +1,28 @@
 <!--
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
-See LICENSE for terms.
+Copyright (c) 2026 JG Systems Consulting Ltd.
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # Changelog: JGS SysML v1 Read Skills
+
+## 0.2.0 (2026-06-26)
+
+Relicensed the pack from the JG Systems Consulting proprietary EULA to **Apache-2.0**. These
+read-only skills are now open source: free to use, fork, and redistribute under Apache-2.0. The
+`jgs-magic-sysmlv1-mcp` bridge they drive, and the PRO skills pack, stay proprietary and are
+distributed separately.
+
+What this changes:
+
+- `LICENSE` is now the Apache-2.0 text; every source and doc header carries
+  `SPDX-License-Identifier: Apache-2.0`; `COPYRIGHT` and `NOTICE` reflect the open-source posture
+  (the `NOTICE` file keeps the trademark and third-party attributions, as Apache-2.0 requires).
+- Added `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md` (Contributor Covenant 2.1).
+- The pack is now listed in the public agent directories for searchable discovery (Anthropic's
+  `claude-plugins-official` for Claude Code, and Cursor's public plugin marketplace), in addition
+  to the in-repo `.claude-plugin/` and `.cursor-plugin/` manifests.
+
+The skills themselves are unchanged: same 17 read-only workflows, same `/jgs-v1` entry point.
 
 ## 0.1.2 (2026-06-26)
 

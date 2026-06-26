@@ -3,8 +3,8 @@ name: jgs-v1-search
 description: Full-text search across element names in a SysML v1 model and present ranked hits with type, qualified name, and ID. FREE tier (read-only). Requires jgs-magic-sysmlv1-mcp. Trigger: "search", "find anything matching", "search the model for", "where is", "look for elements named".
 ---
 <!--
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
-See LICENSE for terms.
+Copyright (c) 2026 JG Systems Consulting Ltd.
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # jgs-v1-search — Full-Text Model Search

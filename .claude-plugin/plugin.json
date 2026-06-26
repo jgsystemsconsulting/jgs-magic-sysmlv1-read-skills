@@ -1,9 +1,9 @@
 {
   "name": "jgs-magic-sysmlv1-read-skills",
   "description": "Read-only SysML v1 analysis skills for CATIA Magic, driven by the /jgs-v1 dispatcher. Free to use; requires the jgs-magic-sysmlv1-mcp bridge (FREE tier).",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "author": { "name": "JG Systems Consulting Ltd." },
   "homepage": "https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills",
   "repository": "https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills",
-  "license": "LicenseRef-JGSystemsConsulting-Proprietary"
+  "license": "Apache-2.0"
 }

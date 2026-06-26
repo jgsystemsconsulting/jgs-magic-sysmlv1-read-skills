@@ -4,8 +4,8 @@ role: audit-specialist
 description: JGS Model Audit — requirement coverage and traceability specialist. Checks requirement coverage and exports requirements matrix. Returns JSON findings conforming to the jgs-v1-audit schema.
 ---
 <!--
-Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
-See LICENSE for terms.
+Copyright (c) 2026 JG Systems Consulting Ltd.
+SPDX-License-Identifier: Apache-2.0
 -->
 
 # JGS Audit — Requirements Coverage & Traceability
