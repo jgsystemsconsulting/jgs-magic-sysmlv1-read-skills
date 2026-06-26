@@ -128,6 +128,23 @@ python install.py --agent all         # all user-global agents (not cursor)
 See [docs/other-agents.md](docs/other-agents.md) for per-agent paths, invoke syntax, and
 limitations.
 
+## Install from a marketplace
+
+The pack ships host-native plugin manifests, so you can add it from inside your agent without
+cloning first:
+
+- **Claude Code:** `/plugin marketplace add jgsystemsconsulting/jgs-magic-sysmlv1-read-skills`,
+  then install **jgs-magic-sysmlv1-read-skills** from the list.
+- **Cursor (2.5+):** the repo carries a `.cursor-plugin/` manifest; point Cursor at this
+  repository to discover and install the pack. Cursor reads the `skills/` tree directly.
+
+> [!NOTE]
+> This is a **proprietary** pack, so it is **not** submitted to the public open-source
+> directories (Anthropic's curated `claude-plugins-official`, Cursor's reviewed public
+> marketplace, the community "awesome" lists), which require an open-source licence. Discovery
+> is through this repository and the [project landing page](https://jgsystemsconsulting.github.io/jgs-magic-sysmlv1-read-skills/);
+> the in-repo manifests above give you a one-command install once you are there.
+
 ---
 
 ## Quick start

@@ -18,6 +18,11 @@ the README and landing page, added a "Related products" map linking the free bri
 upgrade path, switched security reporting to GitHub security advisories (no email address), and
 removed the em dash from all customer-facing prose.
 
+Added a `.cursor-plugin/` manifest so Cursor (2.5+) can install the pack from the repository,
+alongside the existing Claude Code `.claude-plugin/` marketplace manifests. As a proprietary
+pack, it is not submitted to the open-source-only public directories; discovery is through this
+repository and the project landing page.
+
 ## 0.1.1 (2026-06-19)
 
 Expanded the pack to 17 read-only skills. Added `jgs-v1-inspect`, `jgs-v1-search`,
