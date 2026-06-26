@@ -139,10 +139,11 @@ cloning first:
   repository to discover and install the pack. Cursor reads the `skills/` tree directly.
 
 > [!NOTE]
-> This pack is open source (Apache-2.0), so it is also listed in the public agent directories
-> for searchable discovery: Anthropic's `claude-plugins-official` for Claude Code and Cursor's
-> public plugin marketplace. The bridge it drives, **jgs-magic-sysmlv1-mcp**, stays proprietary
-> and is distributed separately.
+> The pack is open source (Apache-2.0), which makes it eligible for the public agent directories
+> (Anthropic's `claude-plugins-official`, Cursor's marketplace). Those listings are submitted
+> through a manually-reviewed web form; we have not pursued them, so the pack is **not** currently
+> in either Discover tab. Install it from this repository with the commands above. The bridge it
+> drives, **jgs-magic-sysmlv1-mcp**, stays proprietary and is distributed separately.
 
 ---
 

@@ -18,9 +18,10 @@ What this changes:
   `SPDX-License-Identifier: Apache-2.0`; `COPYRIGHT` and `NOTICE` reflect the open-source posture
   (the `NOTICE` file keeps the trademark and third-party attributions, as Apache-2.0 requires).
 - Added `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md` (Contributor Covenant 2.1).
-- The pack is now listed in the public agent directories for searchable discovery (Anthropic's
-  `claude-plugins-official` for Claude Code, and Cursor's public plugin marketplace), in addition
-  to the in-repo `.claude-plugin/` and `.cursor-plugin/` manifests.
+- The pack is now eligible for the public agent directories (Anthropic's `claude-plugins-official`,
+  Cursor's marketplace). Those listings go through a manually-reviewed web form and have not been
+  pursued, so the pack is installed from this repository via the `.claude-plugin/` and
+  `.cursor-plugin/` manifests, not from a directory Discover tab.
 
 The skills themselves are unchanged: same 17 read-only workflows, same `/jgs-v1` entry point.
 
