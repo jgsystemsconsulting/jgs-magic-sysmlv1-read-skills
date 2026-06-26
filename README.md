@@ -1,24 +1,34 @@
-﻿<!--
+<!--
 Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
 See LICENSE for terms.
 -->
 
 # JGS SysML v1 Read Skills
 
-![Licence](https://img.shields.io/badge/licence-proprietary-blue) ![Version](https://img.shields.io/badge/version-0.1.1-green) ![Skills](https://img.shields.io/badge/skills-17-orange) ![Claude Code](https://img.shields.io/badge/Claude%20Code-compatible-8A2BE2)
+![Licence](https://img.shields.io/badge/licence-proprietary-blue) ![Version](https://img.shields.io/badge/version-0.1.2-green) ![Skills](https://img.shields.io/badge/skills-17-orange) ![Claude Code](https://img.shields.io/badge/Claude%20Code-compatible-8A2BE2)
 
-**Version:** 0.1.1  
+**Version:** 0.1.2  
 **Vendor:** JG Systems Consulting Ltd.  
-**Contact:** JG Systems Consulting Ltd.  
-**Licence:** Free — no licence file required. Requires jgs-magic-sysmlv1-mcp (FREE tier).
+**Licence:** Free to use. No licence file required.
+
+> [!IMPORTANT]
+> **Requires the free [jgs-magic-sysmlv1-mcp](https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-mcp) bridge.**
+> These skills do nothing on their own. They drive the bridge's read-only (FREE tier) tools to
+> analyse a live SysML v1 model in CATIA Magic. Install the bridge first; its FREE tier is all
+> this pack needs. See [Related products](#related-products) for the bridge and the PRO upgrade.
 
 ---
 
-## What This Is
+## What this is
 
-A free bundle of 17 Claude Code skills for engineers working with SysML v1 models in CATIA Magic Systems of Systems Architect (MSOSA). Every skill is read-only — no write access, no licence key, no model mutation.
+A free bundle of 17 Claude Code skills for engineers working with SysML v1 models in CATIA Magic
+Systems of Systems Architect (MSOSA). Every skill is read-only: no write access, no licence key,
+no model mutation.
 
 Start with `/jgs-v1` and describe what you need in plain English.
+
+New here? The [Skill Usage Guide](docs/skill-usage.md) walks through the entry point, direct
+invocation, and troubleshooting.
 
 ---
 
@@ -30,13 +40,13 @@ Copy everything in the block below and paste it into your coding agent
 ```text
 You are installing jgs-magic-sysmlv1-read-skills, a free, read-only Claude Code skills pack
 (JG Systems Consulting Ltd.) of read-only analysis skills for SysML v1 models in
-CATIA Magic. Repository: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills (version 0.1.1). Do this in order:
+CATIA Magic. Repository: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills (version 0.1.2). Do this in order:
 
 1. Read README.md, docs/skill-usage.md, and CHANGELOG.md in this repository so you
    understand what you are installing and its prerequisites.
-2. Confirm the prerequisite is in place: the jgs-sysmlv1 MCP bridge must be installed
+2. Confirm the prerequisite is in place: the jgs-magic-sysmlv1-mcp bridge must be installed
    and reachable (the FREE/read-only tier is sufficient), with a SysML v1 project open
-   in CATIA Magic. These skills are read-only — they never modify the model.
+   in CATIA Magic. These skills are read-only and never modify the model.
 3. Run `python install.py --dry-run` and show me the skill list and target
    (~/.claude/skills/). If it looks right, run `python install.py`.
 4. Verify: list the installed jgs-v1* directories and confirm the count matches SKILLS.md.
@@ -47,33 +57,33 @@ CATIA Magic. Repository: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv
 
 ---
 
-## Skills in This Pack
+## Skills in this pack
 
 | Skill | What it does |
 |-------|-------------|
-| `jgs-v1` | Dispatcher for all jgs-magic-sysmlv1-mcp FREE-tier skills — navigate, inspect, search, impact, audit, repor… |
-| `jgs-v1-audit` | JGS Model Audit — free, read-only SysML model health audit |
-| `jgs-v1-audit-docs` | JGS Model Audit — documentation coverage specialist |
-| `jgs-v1-audit-duplicates` | JGS Model Audit — duplicate elements specialist |
-| `jgs-v1-audit-methodology` | JGS Model Audit — SE layer hygiene heuristics specialist |
-| `jgs-v1-audit-naming` | JGS Model Audit — naming conventions specialist |
-| `jgs-v1-audit-requirements` | JGS Model Audit — requirement coverage and traceability specialist |
-| `jgs-v1-audit-unused` | JGS Model Audit — unused types and definitions specialist |
-| `jgs-v1-diagrams` | Inventory and export SysML v1 diagrams — build a visual review pack of diagram images, list diagram kinds,… |
-| `jgs-v1-fixplan` | Turn a SysML v1 audit's findings into a read-only remediation plan — per-finding recommended action, the ex… |
-| `jgs-v1-impact` | Impact analysis for a SysML v1 element — map dependents, diagrams, and requirement links before making a ch… |
-| `jgs-v1-inspect` | Deep-dive a single SysML v1 element — type, structure, ports, relationships, allocations, stereotypes, tagg… |
-| `jgs-v1-navigate` | Navigate and inspect a SysML v1 model — produce a structured overview of packages, element counts, and diag… |
-| `jgs-v1-report` | Produce a shareable model-health report and Requirements Traceability Matrix (RTM) for a SysML v1 model, wr… |
-| `jgs-v1-search` | Full-text search across element names in a SysML v1 model and present ranked hits with type, qualified name… |
-| `jgs-v1-status` | Report the SysML v1 bridge safety state (tier/mode) and recent model edit history |
-| `jgs-v1-units` | Look up units, quantity kinds, and standard-library types in a SysML v1 model |
+| `jgs-v1` | Dispatcher for all jgs-magic-sysmlv1-mcp FREE-tier skills: navigate, inspect, search, impact, audit, report. |
+| `jgs-v1-audit` | JGS Model Audit: free, read-only SysML model health audit. |
+| `jgs-v1-audit-docs` | JGS Model Audit: documentation coverage specialist. |
+| `jgs-v1-audit-duplicates` | JGS Model Audit: duplicate elements specialist. |
+| `jgs-v1-audit-methodology` | JGS Model Audit: SE layer hygiene heuristics specialist. |
+| `jgs-v1-audit-naming` | JGS Model Audit: naming conventions specialist. |
+| `jgs-v1-audit-requirements` | JGS Model Audit: requirement coverage and traceability specialist. |
+| `jgs-v1-audit-unused` | JGS Model Audit: unused types and definitions specialist. |
+| `jgs-v1-diagrams` | Inventory and export SysML v1 diagrams: build a visual review pack, list diagram kinds, compare layouts. |
+| `jgs-v1-fixplan` | Turn a SysML v1 audit's findings into a read-only remediation plan with per-finding recommended actions. |
+| `jgs-v1-impact` | Impact analysis for a SysML v1 element: map dependents, diagrams, and requirement links before a change. |
+| `jgs-v1-inspect` | Deep-dive a single SysML v1 element: type, structure, ports, relationships, allocations, stereotypes. |
+| `jgs-v1-navigate` | Navigate a SysML v1 model: a structured overview of packages, element counts, and diagrams. |
+| `jgs-v1-report` | Produce a shareable model-health report and Requirements Traceability Matrix (RTM), written to a file. |
+| `jgs-v1-search` | Full-text search across element names, with ranked hits by type, qualified name, and ID. |
+| `jgs-v1-status` | Report the SysML v1 bridge safety state (tier/mode) and recent model edit history. |
+| `jgs-v1-units` | Look up units, quantity kinds, and standard-library types in a SysML v1 model. |
 
 ---
 
 ## Prerequisites
 
-- **jgs-magic-sysmlv1-mcp** bridge installed and running (FREE tier sufficient)
+- **[jgs-magic-sysmlv1-mcp](https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-mcp)** bridge installed and running (FREE tier sufficient)
 - **Claude Code** with MCP configured for `jgs-magic-sysmlv1-mcp`
 - A SysML v1.x project open in CATIA Magic
 
@@ -93,14 +103,14 @@ bash install.sh
 ```
 
 Options:
-- `--dry-run` — preview what would be installed without writing anything
-- `--force` — overwrite existing same-named skills
-- `--uninstall` — remove previously installed jgs-v1* skills
-- `--agent <name>` — target a specific agent (`claude` default, `openclaw`, `copilot`, `codex`, `gemini`, `cursor`)
-- `--agent all` — install for every user-global agent at once
-- `--list-agents` — show the supported agents and their install paths
+- `--dry-run`: preview what would be installed without writing anything
+- `--force`: overwrite existing same-named skills
+- `--uninstall`: remove previously installed jgs-v1* skills
+- `--agent <name>`: target a specific agent (`claude` default, `openclaw`, `copilot`, `codex`, `gemini`, `cursor`)
+- `--agent all`: install for every user-global agent at once
+- `--list-agents`: show the supported agents and their install paths
 
-Skills are installed as top-level siblings under `~/.claude/skills/` (short-name discovery —
+Skills are installed as top-level siblings under `~/.claude/skills/` (short-name discovery,
 `/jgs-v1`). Restart Claude Code after installation.
 
 ## Use with other agents
@@ -120,27 +130,40 @@ limitations.
 
 ---
 
-## Quick Start
+## Quick start
 
 ```
-/jgs-v1 I just inherited a SysML v1 model — what am I looking at?
+/jgs-v1 I just inherited a SysML v1 model. What am I looking at?
 /jgs-v1 Run a full health audit
 /jgs-v1 What would break if I change the DataBus block?
 ```
 
----
-
-## Support & Security
-
-- **Support / questions:** JG Systems Consulting Ltd.
-- **Report a security issue:** contact JG Systems Consulting Ltd. privately;
-  please do not open public issues for vulnerabilities.
+Full walkthrough: [docs/skill-usage.md](docs/skill-usage.md).
 
 ---
 
-## Relationship to Other JGS Products
+## Support & security
 
-- **jgs-magic-sysmlv1-mcp** — required bridge; this pack calls its read-only tools
-- **jgs-magic-sysmlv1-pro-skills** — the paid companion covering write-tier use cases and v1→v2 migration (migrate-read, cross-model)
+- **Support / questions:** open an issue on this repository.
+- **Report a security issue:** please report privately through a
+  [GitHub security advisory](https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills/security/advisories/new),
+  or open a pull request with a fix. Do not open a public issue for vulnerabilities.
+  See [SECURITY.md](SECURITY.md).
 
+---
 
+## Related products
+
+This pack is the free, read-only entry point to the JGS SysML v1 line. It sits on top of a
+free bridge, and a PRO upgrade unlocks write access:
+
+| Product | What it is | Cost |
+|---------|------------|------|
+| **[jgs-magic-sysmlv1-mcp](https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-mcp)** | The MCP bridge these skills depend on. Its FREE tier serves the read-only tools this pack calls. A **PRO licence** on the same bridge unlocks model writes (create, edit, fix). | Free bridge; PRO licence for writes |
+| **jgs-magic-sysmlv1-read-skills** *(this pack)* | 17 read-only analysis skills driven by `/jgs-v1`. Runs on the bridge's FREE tier. | Free |
+| **jgs-magic-sysmlv1-pro-skills** | The paid companion: write-tier skills (apply audit fixes, author requirements and allocations) plus v1→v2 migration (migrate-read, cross-model). | PRO |
+
+**The upgrade path:** install the free bridge, add these free read skills, and analyse your
+model at no cost. When you want the agent to *act* on what it finds, add a PRO licence to the
+bridge and the **jgs-magic-sysmlv1-pro-skills** pack. Same local, air-gapped setup; full write
+access. [Compare tiers](https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-mcp/blob/main/docs/licensing.md).
