@@ -10,8 +10,11 @@ See LICENSE for terms.
 If you discover a security issue in this software, please report it **privately**. Do **not**
 open a public GitHub issue for security vulnerabilities.
 
-- **Email:** support@jgsystemsconsulting.com
-- Include: a description, reproduction steps, and the affected version (see `RELEASE-INFO.txt`).
+- **Preferred:** open a private
+  [GitHub security advisory](https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills/security/advisories/new)
+  on this repository.
+- **Alternatively:** open a pull request with the fix.
+- Include a description, reproduction steps, and the affected version (see `RELEASE-INFO.txt`).
 
 ## What to expect
 
@@ -27,4 +30,4 @@ request it.
 
 These skills are **read-only**: they call the FREE/read-only tier of the
 `jgs-magic-sysmlv1-mcp` bridge and never modify your model. Reports about the bridge itself
-should reference `jgs-magic-sysmlv1-mcp`.
+should reference the `jgs-magic-sysmlv1-mcp` repository.

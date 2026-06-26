@@ -8,7 +8,7 @@ See LICENSE for terms.
 These skills are read-only SysML v1 analysis workflows that drive the
 `jgs-magic-sysmlv1-mcp` bridge. They ship in Claude Code's `SKILL.md` format, which
 **several agents read natively** and others can consume after a small format transform.
-`install.py` handles both — pick a target with `--agent`.
+`install.py` handles both; pick a target with `--agent`.
 
 ```bash
 python install.py --list-agents          # show every target and where it installs
@@ -18,8 +18,8 @@ python install.py --agent <name> --dry-run --force --uninstall   # the usual fla
 ```
 
 > **Flat layout (deliberate).** Every skill is prefixed `jgs-v1` and the product UX is the
-> short-name dispatcher `/jgs-v1`. The installer therefore writes skills **flat** — top-level
-> siblings, not under a vendor-namespace subfolder — so each agent discovers them by their
+> short-name dispatcher `/jgs-v1`. The installer therefore writes skills **flat** (top-level
+> siblings, not under a vendor-namespace subfolder) so each agent discovers them by their
 > short names. Only `jgs-v1*` items are ever created or removed.
 
 ## Supported targets
@@ -33,11 +33,11 @@ python install.py --agent <name> --dry-run --force --uninstall   # the usual fla
 | Gemini CLI | `gemini` | `~/.gemini/commands/<skill>.toml` | TOML (`prompt = """…"""`) | `/jgs-v1` (run `/commands reload`) |
 | Cursor | `cursor` | `./.cursor/rules/<skill>.mdc` **(project-local)** | `.mdc` rule + frontmatter | `@jgs-v1`, or auto-applied by rule description |
 
-### Native SKILL.md agents — `claude`, `openclaw`, `copilot`
+### Native SKILL.md agents: `claude`, `openclaw`, `copilot`
 These read the `SKILL.md` format directly, so the installer copies each skill folder
-unchanged — references and all.
+unchanged, references and all.
 
-### Transform agents — `codex`, `gemini`, `cursor`
+### Transform agents: `codex`, `gemini`, `cursor`
 These use prompt/rule conventions rather than skills, so the installer converts each
 `SKILL.md` into the agent's format. To keep the result self-contained, any `references/`
 files are **inlined into the prompt as an appendix**.

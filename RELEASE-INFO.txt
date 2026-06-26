@@ -1,5 +1,5 @@
-JGS SysML v1 Read Skills — External Release
-Version:    0.1.1
-Staged:     2026-06-19T19:05:01.254020+00:00
-Tag:        v0.1.1
+JGS SysML v1 Read Skills - External Release
+Version:    0.1.2
+Staged:     2026-06-26T00:00:00+00:00
+Tag:        v0.1.2
 Vendor:     JG Systems Consulting Ltd.

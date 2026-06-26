@@ -4,3 +4,6 @@ __pycache__/
 .venv/
 .DS_Store
 Thumbs.db
+.vs/
+.idea/
+.playwright-mcp/
