@@ -1,0 +1,59 @@
+name: Bug report
+description: A skill produced malformed or incorrect output
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: "For security vulnerabilities, use the advisory link on the chooser - do not file them here."
+  - type: input
+    id: version
+    attributes:
+      label: Pack version
+      description: Copy Version from RELEASE-INFO.txt.
+    validations:
+      required: true
+  - type: dropdown
+    id: host
+    attributes:
+      label: Host agent
+      options: [Claude Code, Codex, Cursor, Gemini, Other]
+    validations:
+      required: true
+  - type: input
+    id: skill
+    attributes:
+      label: Skill name
+      description: The jgs-v1* skill (or the /jgs-v1 dispatcher) that misbehaved.
+    validations:
+      required: true
+  - type: textarea
+    id: called
+    attributes:
+      label: What you asked for
+      description: The prompt or /jgs-v1 invocation and any tool calls it made.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What actually happened
+      description: Paste the raw output.
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+  - type: checkboxes
+    id: hygiene
+    attributes:
+      label: Before submitting
+      options:
+        - label: I removed any licence keys, file paths, or credentials from the pasted output.
+          required: true

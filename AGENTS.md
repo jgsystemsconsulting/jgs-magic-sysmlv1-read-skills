@@ -1,0 +1,49 @@
+<!--
+Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
+See LICENSE for terms.
+-->
+
+# AGENTS.md — JGS SysML v1 Read Skills
+
+Agent-facing index for this repository. A coding agent dropped into a clone should start here.
+
+## What this repo is
+
+18 free, read-only analysis skills for SysML v1 models in CATIA Magic
+(MSOSA), driven by the `/jgs-v1` dispatcher over the `jgs-magic-sysmlv1-mcp` bridge
+(FREE tier). Proprietary of JG Systems Consulting Ltd, free of charge; see `LICENSE`.
+
+## Install (copy-paste)
+
+```bash
+python install.py --dry-run   # preview: lists skills and target
+python install.py             # install for Claude Code (default)
+python install.py --agent all # all user-global agents (ZCode, Claude Code, OpenClaw, Copilot, Codex, Gemini)
+```
+
+Then restart the agent and invoke `/jgs-v1 <request>`. Flat install for short-name
+discovery; `--target PATH` and `$CLAUDE_CONFIG_DIR` override locations.
+
+## Verify
+
+```bash
+python install.py --list-agents      # supported agents and paths
+python scripts/check_release.py      # release gate (required files, leaks, versions)
+```
+
+## Where things live
+
+- `SKILLS.md` — generated index of every skill (name + description).
+- `skills/jgs-v1*/SKILL.md` — the skills themselves; each has `## When to use` and `## Prerequisites`.
+- `docs/skill-usage.md` — invoke guide: dispatcher, direct invocations, PRO boundary, troubleshooting.
+- `docs/other-agents.md` — per-agent install targets and invoke syntax.
+- `README.md` — full product overview, agent-install prompt, feedback channels.
+- `RELEASE-INFO.txt` — version and tag for this staged release.
+
+## Rules for agents working in this clone
+
+- Read `README.md` and `docs/skill-usage.md` before changing anything user-facing.
+- Never edit `SKILLS.md` or `RELEASE-INFO.txt` by hand; they are generated at release time.
+- Do not add model content, file paths, or credentials to any file; the release gate scans for leaks.
+- Report gaps via `/jgs-v1-feedback` (in-pack) or the issue forms; do not open pull requests
+  against this release repo (fixes are applied upstream by the maintainer).

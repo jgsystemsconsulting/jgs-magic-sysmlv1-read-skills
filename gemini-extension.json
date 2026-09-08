@@ -1,0 +1,5 @@
+{
+  "name": "jgs-magic-sysmlv1-read-skills",
+  "version": "0.3.0",
+  "description": "Free, read-only SysML v1 analysis skills for CATIA Magic, driven by the /jgs-v1 dispatcher. Requires the jgs-magic-sysmlv1-mcp bridge (FREE tier)."
+}

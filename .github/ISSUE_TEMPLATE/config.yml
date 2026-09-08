@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills/security/advisories/new
+    about: Do not file public issues for vulnerabilities. Use a private security advisory.
+  - name: Bridge defects (jgs-magic-sysmlv1-mcp)
+    url: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-mcp/issues/new/choose
+    about: If the MCP bridge itself misbehaves (connection, tools, licensing), file it on the bridge's tracker, not here.

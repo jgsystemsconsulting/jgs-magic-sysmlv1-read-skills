@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--
+  Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved.
+  Generated at release time from scripts/release_v1_free_templates/docs/guide.html.
+  JGS brand & design system: dark engineering drafting-document aesthetic.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guide: JGS SysML v1 Read Skills for CATIA Magic | JGS</title>
+<meta name="description" content="From install to first insight with the JGS SysML v1 Read Skills: prerequisites, the /jgs-v1 dispatcher, direct invocations, and fixes for the two most common failures.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="JG Systems Consulting Ltd.">
+<link rel="canonical" href="https://jgsystemsconsulting.github.io/jgs-magic-sysmlv1-read-skills/guide.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="JGS CATIA Magic MCP">
+<meta property="og:title" content="Guide: JGS SysML v1 Read Skills for CATIA Magic">
+<meta property="og:description" content="Prerequisites, the /jgs-v1 dispatcher, direct invocations, and troubleshooting for the free, read-only SysML v1 skills.">
+<meta property="og:url" content="https://jgsystemsconsulting.github.io/jgs-magic-sysmlv1-read-skills/guide.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Guide: JGS SysML v1 Read Skills for CATIA Magic">
+<meta name="twitter:description" content="Prerequisites, the /jgs-v1 dispatcher, direct invocations, and troubleshooting for the free, read-only SysML v1 skills.">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="row">
+    <span>CLASSIFICATION: <b>PUBLIC</b></span>
+    <span>LICENCE: <b>FREE</b></span>
+    <span>DOC-ID: <b>JGS-SKILLS-V1-READ</b></span>
+    <span>REV <b>0.3.0</b></span>
+    <span class="spacer"></span>
+    <a href="https://labs.jgsystemsconsulting.com/licensing.html">Licence →</a>
+    <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills">GitHub →</a>
+  </div>
+</header>
+
+<nav class="sitenav" aria-label="Site">
+  <div class="row">
+    <a href="index.html">Home</a>
+    <a href="index.html#what">What it is</a>
+    <a href="index.html#agents">Agents</a>
+    <a href="#install">Install</a>
+    <a href="#usage">Invoke</a>
+    <a href="#troubleshooting">Troubleshooting</a>
+    <a href="guide.html" aria-current="page">Guide</a>
+    <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills">Repository</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section class="hero">
+    <p class="label">JG Systems Consulting Ltd. · CATIA Magic MCP</p>
+    <h1>From install to first insight.</h1>
+    <p class="lede">
+      Everything you need after the download: what must already be running, the one command
+      that starts every task, the direct invocations for each specialist, and the two failures
+      people hit first. The deep reference lives in
+      <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills/blob/main/docs/skill-usage.md">skill-usage.md</a>; this page is the path
+      most people take.
+    </p>
+  </section>
+
+  <section id="install">
+    <p class="label sec-label">§G1 · Install</p>
+    <p class="lead-in">
+      One prerequisite decides everything: the
+      <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-mcp">jgs-magic-sysmlv1-mcp</a>
+      bridge must be installed and running, with a SysML v1 project open in CATIA Magic. The FREE
+      read-only tier is enough for every skill in this pack. Then install the skills for your agent:
+    </p>
+    <pre><span class="c"># preview first; install for Claude Code with the plain command</span>
+python install.py --dry-run
+python install.py
+
+<span class="c"># another agent? ZCode installs the same way as Claude</span>
+python install.py --agent zcode
+python install.py --list-agents   <span class="c"># every target and path</span></pre>
+    <p style="margin-top:14px; font-size:0.9rem; color:var(--mute);">Skills land flat under <code>~/.claude/skills/</code> (or your agent's equivalent) so short names like <code>/jgs-v1</code> resolve. Restart your agent afterwards.</p>
+  </section>
+
+  <section id="usage">
+    <p class="label sec-label">§G2 · Invoke</p>
+    <p class="lead-in">Start with the dispatcher and describe the task in plain English. It pings the
+      bridge, checks your licence tier, and routes to the right specialist:</p>
+    <pre>/jgs-v1 I just inherited this model: what am I looking at?
+/jgs-v1 Run a full health audit
+/jgs-v1 What would break if I change the DataBus block?</pre>
+    <p class="lead-in" style="margin-top:18px;">Each specialist also takes a direct invocation when you already know what you need:</p>
+    <pre>/jgs-v1-navigate [&lt;package-name&gt;]        <span class="c">structured model overview</span>
+/jgs-v1-inspect &lt;element-name&gt;          <span class="c">everything about one element</span>
+/jgs-v1-impact &lt;element-name&gt;           <span class="c">blast radius before a change</span>
+/jgs-v1-audit [&lt;root-package-id&gt;]       <span class="c">six-specialist health audit</span></pre>
+    <p class="lead-in" style="margin-top:18px;">Direct invocation skips the dispatcher's liveness check, so a down bridge shows up as raw tool errors instead of a friendly message. Anything that modifies the model (writes, v1→v2 migration, cross-model compare) is out of scope here: the dispatcher says so and offers the read-only equivalent.</p>
+  </section>
+
+  <section id="skills">
+    <p class="label sec-label">§G3 · The specialists at a glance</p>
+    <table>
+      <thead><tr><th>Skill</th><th>Reach for it when</th></tr></thead>
+      <tbody>
+        <tr><td><code>/jgs-v1</code></td><td>you can name the goal but not the specialist; it routes and flags PRO-only requests</td></tr>
+        <tr><td><code>/jgs-v1-navigate</code></td><td>the model is unfamiliar: packages, element counts, diagram inventory</td></tr>
+        <tr><td><code>/jgs-v1-inspect</code></td><td>one element needs a full dossier: structure, ports, relationships, allocations</td></tr>
+        <tr><td><code>/jgs-v1-search</code></td><td>you know part of a name and want ranked hits with type, qualified name, ID</td></tr>
+        <tr><td><code>/jgs-v1-impact</code></td><td>a shared element is about to change and you need dependents first</td></tr>
+        <tr><td><code>/jgs-v1-audit</code></td><td>you want the consolidated, severity-graded model-health audit</td></tr>
+        <tr><td><code>/jgs-v1-report</code></td><td>the analysis has to be shared: model-health report plus RTM, written to a file</td></tr>
+        <tr><td><code>/jgs-v1-fixplan</code></td><td>an audit is done: turn findings into a read-only remediation plan</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:14px; font-size:0.9rem; color:var(--mute);">Plus the audit specialists (naming, docs, requirements, duplicates, unused, methodology), <code>/jgs-v1-diagrams</code>, <code>/jgs-v1-units</code>, <code>/jgs-v1-status</code>, and <code>/jgs-v1-feedback</code> for reporting gaps. All 18 are listed in <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills/blob/main/SKILLS.md">SKILLS.md</a>.</p>
+  </section>
+
+  <section id="troubleshooting">
+    <p class="label sec-label">§G4 · When something looks off</p>
+    <div class="grid cols-2">
+      <div class="cell"><h3>"Bridge is not reachable"</h3><p>CATIA Magic must be open with a SysML v1 project loaded and the jgs-magic-sysmlv1-mcp plugin active. Check that first; it is almost always the answer.</p></div>
+      <div class="cell"><h3>Results seem truncated</h3><p>Some bridge tools cap at 50 results or 2000 elements. Use qualified names for exact lookups, or scope the skill to a specific package.</p></div>
+    </div>
+    <p style="margin-top:18px; font-size:0.9rem; color:var(--mute);">Still stuck? The <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills/issues/new/choose">issue chooser</a> routes bugs and improvements, and <code>/jgs-v1-feedback</code> drafts the report for you in-session. Full per-skill walkthroughs: <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills/blob/main/docs/skill-usage.md">skill-usage.md</a>; other agents: <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills/blob/main/docs/other-agents.md">other-agents.md</a>.</p>
+  </section>
+
+  <footer>
+    <p>Copyright (c) 2026 JG Systems Consulting Ltd. All Rights Reserved. Proprietary,
+       see <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills/blob/main/LICENSE">LICENSE</a>.
+       <a href="https://labs.jgsystemsconsulting.com/licensing.html">Commercial or academic licence enquiries</a>.
+       Requires <a href="https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-mcp">jgs-magic-sysmlv1-mcp</a>. REV 0.3.0.</p>
+  </footer>
+
+</main>
+</body>
+</html>

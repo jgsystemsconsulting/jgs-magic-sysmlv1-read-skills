@@ -1,0 +1,48 @@
+name: Skill improvement
+description: An outcome the pack could not enable, and the change you propose
+labels: [enhancement]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Pack version
+      description: Copy Version from RELEASE-INFO.txt (this release: 0.3.0).
+    validations:
+      required: true
+  - type: dropdown
+    id: host
+    attributes:
+      label: Host agent
+      options: [Claude Code, Codex, Cursor, Gemini, Other]
+    validations:
+      required: true
+  - type: input
+    id: skill
+    attributes:
+      label: Skill (or 'new skill')
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Outcome blocked
+      description: What you were trying to achieve that the pack could not enable.
+    validations:
+      required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Anything else
+  - type: checkboxes
+    id: hygiene
+    attributes:
+      label: Before submitting
+      options:
+        - label: I removed any licence keys, file paths, or credentials from this report.
+          required: true

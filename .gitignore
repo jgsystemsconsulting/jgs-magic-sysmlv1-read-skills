@@ -1,0 +1,7 @@
+# Release-repo .gitignore (v1 read skills)
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+Thumbs.db
+.playwright-mcp/
