@@ -169,7 +169,13 @@ Each kind of report has its own channel:
 
 ---
 
-## Relationship to Other JGS Products
+## Related repositories
 
-- **jgs-magic-sysmlv1-mcp**: required bridge; this pack calls its read-only tools
-- **jgs-magic-sysmlv1-pro-skills**: the paid companion covering write-tier use cases and v1→v2 migration (migrate-read, cross-model)
+The JGS SysML toolchain spans two MCP bridges and two skills packs. This repository is one part; the others:
+
+| Repository | What it is | Access |
+|---|---|---|
+| [jgs-magic-sysmlv1-mcp](https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-mcp) | MCP bridge for live SysML v1 models in CATIA Magic (MSOSA). FREE tier is read-only; a PRO licence adds write tools, and ENTERPRISE adds administrative tools. | Free; PRO and ENTERPRISE by licence |
+| [jgs-magic-sysmlv2-mcp](https://github.com/jgsystemsconsulting/jgs-magic-sysmlv2-mcp) | MCP bridge for live SysML v2 models in CATIA Magic. FREE tier is read-only; a PRO licence adds write tools, and ENTERPRISE adds administrative tools. | Free; PRO and ENTERPRISE by licence |
+| jgs-magic-sysmlv1-read-skills (this repository) | Free read-only analysis skills for SysML v1. | Free |
+| jgs-magic-sysmlv1-pro-skills | Write-capable and migration skills for SysML v1; the paid companion to the read skills. | Proprietary; request access via https://labs.jgsystemsconsulting.com/licensing.html |
