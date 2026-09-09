@@ -33,7 +33,7 @@ off the licence, not the price).
 
 | Channel | Artifact | Status | Decision / reason | Date |
 |---|---|---|---|---|
-| JGSC Labs catalogue (labs.jgsystemsconsulting.com) | site product entry | in progress | RR-B-19 product entry with install + licensing links. Maintainer action. | 2026-09-09 |
+| JGSC Labs catalogue (labs.jgsystemsconsulting.com) | site product entry | submitted | Live on the products page (site commit c3bc5a3); blurb matches the repo About description. | 2026-09-09 |
 | GitHub About + topics + Release | publish-time `gh` config | submitted | Configured at publish (description, homepage = Pages URL, topics per RR-B-21). | 2026-09-09 |
 | mcpservers.org/agent-skills (community skills marketplace) | repo URL | deferred | Community marketplace; listing terms and licence bar not yet assessed against the proprietary EULA. Reassess at next release. | 2026-09-09 |
 | Community awesome-lists (Claude/agent-skills family) | PR entry | deferred | Same acceptability gate as RR-B-29b: verify each list's licence requirement before a PR. | 2026-09-09 |
