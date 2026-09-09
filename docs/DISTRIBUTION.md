@@ -23,10 +23,10 @@ off the licence, not the price).
 
 | Channel | Manifest | Status | Decision / reason | Date |
 |---|---|---|---|---|
-| Claude Code: anthropics/claude-plugins-official | `.claude-plugin/` | planned | Submit after repo publish; curated review, acceptance not guaranteed. | 2026-09-09 |
+| Claude Code: Plugin Directory submission form (Console) | `.claude-plugin/` | submitted | Filed 2026-09-09 via platform.claude.com/plugins/submit from the maintainer's Console account; lands in claude-plugins-community after review (`claude plugin validate` passed pre-filing). Contact: support@jgsystemsconsulting.com. | 2026-09-09 |
 | Cursor: cursor.com/marketplace/publish + cursor.directory | `.cursor-plugin/` | deliberate N/A | Reviewed marketplace requires an open-source licence; pack is proprietary EULA. Manifest ships for in-repo install. Revisit only if the licence posture changes. | 2026-09-09 |
-| OpenAI Codex CLI: Plugin Directory | `.agents/plugins/` | planned | Baseline install already works via the manifests (Codex also reads the Claude manifest); submit after publish. | 2026-09-09 |
-| Gemini CLI: geminicli.com/extensions gallery | `gemini-extension.json` | planned | PR-based gallery flow; `gemini extensions install` verifiable against the shipped manifest. | 2026-09-09 |
+| OpenAI Codex CLI: Plugin Directory (universal ChatGPT/Codex directory) | `.agents/plugins/` | planned | Requires the OpenAI agent-plugins root `plugin.json` format and their portal (developers.openai.com/plugins/deploy/submission, OpenAI account). Manifest work + filing remain; baseline install works today via the shipped manifests. | 2026-09-09 |
+| Gemini CLI: geminicli.com/extensions gallery | `gemini-extension.json` | submitted | Gallery auto-indexes tagged public repos carrying the `gemini-cli-extension` topic; topic added and v0.3.0 tag pushed 2026-09-09. Verify the listing appears (crawler runs daily). | 2026-09-09 |
 | ZCode | installer target (`--agent zcode`, flat `~/.zcode/skills`) | deliberate N/A | No marketplace exists; distribution is the installer plus this repository. | 2026-09-09 |
 
 ## Web directories & catalogues
@@ -35,7 +35,7 @@ off the licence, not the price).
 |---|---|---|---|---|
 | JGSC Labs catalogue (labs.jgsystemsconsulting.com) | site product entry | submitted | Live on the products page (site commit c3bc5a3); blurb matches the repo About description. | 2026-09-09 |
 | GitHub About + topics + Release | publish-time `gh` config | submitted | Configured at publish (description, homepage = Pages URL, topics per RR-B-21). | 2026-09-09 |
-| mcpservers.org/agent-skills (community skills marketplace) | repo URL | deferred | Community marketplace; listing terms and licence bar not yet assessed against the proprietary EULA. Reassess at next release. | 2026-09-09 |
+| mcpservers.org/agent-skills (community skills marketplace) | repo URL | in progress | Site assessed 2026-09-09: its submit form is MCP-server-shaped (no skills category) and the Agent Skills library appears to auto-aggregate GitHub skills. Verify the pack is listed; escalate to their contact if not. | 2026-09-09 |
 | Community awesome-lists (Claude/agent-skills family) | PR entry | deferred | Same acceptability gate as RR-B-29b: verify each list's licence requirement before a PR. | 2026-09-09 |
 
 ## MCP aggregator directories (RR-M-07)
