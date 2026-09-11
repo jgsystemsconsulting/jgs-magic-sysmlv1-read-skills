@@ -55,6 +55,14 @@ files are **inlined into the prompt as an appendix**.
 - **`--target`** overrides the install directory for a single agent (it cannot be combined
   with `--agent all`).
 
+## Verify after install
+
+1. `python install.py --list-agents` — confirm target and path.
+2. Prefer `python install.py --agent <name> --dry-run` before a write.
+3. `--agent all` installs every **user-global** agent only; **cursor is excluded** (project-local). From the project root run `python install.py --agent cursor` when needed.
+4. Restart or reload the agent (see invoke notes per agent above).
+5. Count install artifacts under **that agent’s install path** (`jgs-v1*` directories for native agents; matching `.md`/`.toml`/`.mdc` files for transform agents). The count must match the skill count in `SKILLS.md`. Extra stale names usually mean a prior install; run `--uninstall` or `--force` and re-check.
+
 ## What stays the same everywhere
 
 Regardless of agent, the prerequisite is identical: the `jgs-magic-sysmlv1-mcp` bridge must be
