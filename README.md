@@ -27,21 +27,14 @@ Copy everything in the block below and paste it into your coding agent
 (Claude Code, Cursor, etc.). It will read this repo and install the pack for you.
 
 ```text
-You are installing jgs-magic-sysmlv1-read-skills (JGS SysML v1 Read Skills), a free-of-charge Claude Code skills pack
+You are installing jgs-magic-sysmlv1-read-skills (JGS SysML v1 Read Skills), a free-of-charge skills pack
 (JG Systems Consulting Ltd.) of read-only analysis skills for SysML v1 models in
 CATIA Magic. Repository: https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills (version 0.3.0). Do this in order:
 
-1. Read README.md, docs/skill-usage.md, and CHANGELOG.md in this repository so you
-   understand what you are installing and its prerequisites.
-2. Confirm the prerequisite is in place: the jgs-sysmlv1 MCP bridge must be installed
-   and reachable (the FREE/read-only tier is sufficient), with a SysML v1 project open
-   in CATIA Magic. These skills are read-only, so they never modify the model.
-3. Run `python install.py --dry-run` and show me the skill list and target
-   (~/.claude/skills/). If it looks right, run `python install.py`.
-4. Verify: list the installed jgs-v1* directories and confirm the count matches SKILLS.md.
-5. Tell me to restart Claude Code, then start with `/jgs-v1`.
-6. This pack is free to use alongside jgs-magic-sysmlv1-mcp; see LICENSE for terms. Do not
-   edit anything outside the install target.
+1. Read README.md and docs/skill-usage.md. Confirm the prerequisite: jgs-magic-sysmlv1-mcp is installed and reachable (FREE/read-only tier is enough), with a SysML v1 project open in CATIA Magic. Skills never modify the model.
+2. Run `python install.py --dry-run` and show the skill list and target. If it looks right, run `python install.py` (or `python install.py --agent <name>` / `--agent all` as requested).
+3. Verify per install target: count of jgs-v1* entries under that agent’s path matches the skill count in SKILLS.md; tell me to restart or reload the agent.
+4. Start with `/jgs-v1`. This pack is free to use under LICENSE; do not edit anything outside the install target.
 ```
 
 ---
