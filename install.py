@@ -114,6 +114,16 @@ AGENTS: dict[str, dict] = {
                  "invoke": "@jgs-v1, or let the agent auto-apply by rule description"},
 }
 
+RESTART_HINT = {
+    "claude": "Restart Claude Code to pick up skills.",
+    "zcode": "Restart ZCode to pick up skills.",
+    "openclaw": "Restart OpenClaw to pick up skills.",
+    "copilot": "Run /skills reload (or restart Copilot CLI).",
+    "codex": "Restart Codex to pick up prompts.",
+    "gemini": "Run /commands reload (or restart Gemini CLI).",
+    "cursor": "Reload the window or restart Cursor.",
+}
+
 
 # --------------------------------------------------------------------------- #
 # SKILL.md parsing + format transforms
@@ -270,6 +280,10 @@ def install_for_agent(agent: str, override: pathlib.Path | None,
     else:
         print(f"Installed {installed}. Overwrote {overwritten}. Skipped {skipped}.")
         print(f"Invoke: {cfg['invoke']}")
+        print("--- verify ---")
+        print(f"Target: {base}")
+        print(f"Skills installed this run: {installed}")
+        print(RESTART_HINT.get(agent, "Restart the agent to pick up changes."))
     return 0
 
 
