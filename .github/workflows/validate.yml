@@ -37,8 +37,29 @@ jobs:
               fm = head[1]
               name = next((l.split(":",1)[1].strip() for l in fm.splitlines()
                            if l.strip().startswith("name:")), "")
-              desc = next((l.split(":",1)[1].strip() for l in fm.splitlines()
-                           if l.strip().startswith("description:")), "")
+              desc = ""
+              lines = fm.splitlines()
+              i = 0
+              while i < len(lines):
+                  raw = lines[i]
+                  if raw.strip().startswith("description:"):
+                      rest = raw.split(":", 1)[1].strip()
+                      if rest in ("|", ">", "|-", ">-", "|+", ">+") or rest == "":
+                          parts = []
+                          i += 1
+                          while i < len(lines):
+                              nxt = lines[i]
+                              if nxt.startswith(" ") or nxt.startswith("\t") or nxt.strip() == "":
+                                  parts.append(nxt.strip() if nxt.strip() else "")
+                                  i += 1
+                                  continue
+                              break
+                          desc = " ".join(p for p in parts if p).strip()
+                          continue
+                      desc = rest.strip().strip("\"'")
+                  i += 1
+              if desc and len(desc) > 1024:
+                  bad.append(f"{md}: description length {len(desc)} > 1024")
               if not name:           bad.append(f"{md}: missing name")
               elif name != skill_dir: bad.append(f"{md}: name '{name}' != dir '{skill_dir}'")
               if name and re.match(r"^[a-z][a-z0-9-]*$", name) is None:
