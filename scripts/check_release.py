@@ -99,7 +99,9 @@ for path in _tree():
             elif rx.search(text):
                 fails.append(f"forbidden content in {rel}: {rx.pattern}")
     if path.suffix.lower() in {".md", ".py", ".sh", ".ps1"}:
-        if HEADER_SENTINEL not in text[:4096]:
+        if rel.startswith(("docs/superpowers/", ".superpowers/")):
+            pass  # process artifacts; header not required
+        elif HEADER_SENTINEL not in text[:4096]:
             fails.append(f"header missing: {rel}")
 
 for path in _tree():
@@ -163,6 +165,23 @@ if pj.is_file():
             fails.append(f"version mismatch: plugin.json={v!r} != {VERSION!r}")
     except Exception as exc:
         fails.append(f"plugin.json unreadable: {exc}")
+
+cff = pathlib.Path("CITATION.cff")
+if cff.is_file():
+    m_cff = re.search(r'(?m)^version:\s*["\']?([^"\'\s]+)', cff.read_text(encoding="utf-8", errors="ignore"))
+    if not m_cff:
+        fails.append("CITATION.cff has no version:")
+    elif m_cff.group(1) != VERSION:
+        fails.append(f"version mismatch: CITATION.cff={m_cff.group(1)!r} != {VERSION!r}")
+
+cpj = pathlib.Path(".cursor-plugin/plugin.json")
+if cpj.is_file():
+    try:
+        v = json.loads(cpj.read_text(encoding="utf-8")).get("version")
+        if v != VERSION:
+            fails.append(f"version mismatch: .cursor-plugin/plugin.json={v!r} != {VERSION!r}")
+    except Exception as exc:
+        fails.append(f".cursor-plugin/plugin.json unreadable: {exc}")
 
 if fails:
     print("RELEASE GATE FAILED:")
