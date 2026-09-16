@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "jgs-magic-sysmlv1-read-skills",
+  "version": "0.3.0",
+  "description": "18 free, read-only SysML v1 analysis skills for CATIA Magic (MSOSA): navigate, inspect, audit, and report via /jgs-v1 over the jgs-magic-sysmlv1-mcp bridge (FREE tier). Works with ZCode, Claude Code, Codex, Gemini CLI, Copilot, and Cursor.",
+  "author": {
+    "name": "JG Systems Consulting Ltd",
+    "email": "support@jgsystemsconsulting.com",
+    "url": "https://labs.jgsystemsconsulting.com"
+  },
+  "homepage": "https://jgsystemsconsulting.github.io/jgs-magic-sysmlv1-read-skills/",
+  "repository": "https://github.com/jgsystemsconsulting/jgs-magic-sysmlv1-read-skills",
+  "license": "LicenseRef-JGSystemsConsulting-Proprietary",
+  "keywords": ["sysml", "mbse", "catia-magic", "agent-skills"]
+}
