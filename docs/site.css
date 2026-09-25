@@ -58,6 +58,8 @@ code, .mono { font-family: var(--mono); }
   text-transform: uppercase; text-decoration: none; color: var(--mute-2);
 }
 .sitenav .row a:hover, .sitenav .row a[aria-current="page"] { color: var(--text-hi); }
+.sitenav .row a.brand { display: inline-flex; align-items: center; }
+.sitenav .row a.brand img { display: block; }
 
 /* Section scaffolding */
 section { padding: var(--pad-section) 0; border-bottom: 1px solid var(--line); }
