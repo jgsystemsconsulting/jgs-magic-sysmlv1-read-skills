@@ -17,9 +17,10 @@ jobs:
           fail=0
           # Match the specific internal-distribution marker, not the bare word
           # "CONFIDENTIAL" — a proprietary EULA legitimately says "Confidential
-          # Information". Exclude .github/ (these strings appear here as grep targets).
+          # Information". Exclude .github/ and the gate script itself (these
+          # strings appear there as grep targets).
           for s in "Not for external distribution" "BEGIN PRIVATE KEY" "BEGIN OPENSSH PRIVATE KEY"; do
-            if grep -rIl --exclude-dir=.git --exclude-dir=.github "$s" . ; then
+            if grep -rIl --exclude-dir=.git --exclude-dir=.github --exclude=check_release.py "$s" . ; then
               echo "::error::forbidden content found: $s"; fail=1
             fi
           done
