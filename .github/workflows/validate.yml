@@ -98,7 +98,27 @@ jobs:
                   elif frag[1:] not in page_ids:
                       fails.append(f"{name}: anchor {frag} not on {target or name}")
           if fails:
-              print("
-".join(fails)); sys.exit(1)
+              print("\n".join(fails)); sys.exit(1)
           print("site structure OK")
+          PY
+      - name: Site version check
+        run: |
+          python3 - <<'PY'
+          # Twins scripts/check_release.py check_site_version() (pattern from jgs-lit-memory site_page()).
+          import pathlib, re, sys
+          ri = pathlib.Path("RELEASE-INFO.txt").read_text(encoding="utf-8")
+          m = re.search(r"^Version:\s*(\d+\.\d+\.\d+)", ri, re.M)
+          expected = m.group(1) if m else None
+          t = pathlib.Path("docs/index.html").read_text(encoding="utf-8")
+          pats = [r'"softwareVersion":\s*"(\d+\.\d+\.\d+)"',
+                  r"REV <b>(\d+\.\d+\.\d+)</b>",
+                  r'<span class="label">Rev</span><b>(\d+\.\d+\.\d+)</b>']
+          found = [re.search(p, t) for p in pats]
+          vals = [mm.group(1) if mm else None for mm in found]
+          print({"RELEASE-INFO": expected, "index.html softwareVersion": vals[0],
+                 "index.html masthead REV": vals[1], "index.html footer Rev": vals[2]})
+          if expected is None or any(v != expected for v in vals):
+              print("::error::site page version mismatch")
+              sys.exit(1)
+          print("OK: site page versions agree at " + expected + ".")
           PY
